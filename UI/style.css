@@ -51,8 +51,6 @@ a:hover {
 .btn {
   display: inline-block;
   border: none;
-  padding: 1rem 2rem;
-  margin: 0;
   text-decoration: none;
   font-family: sans-serif;
   cursor: pointer;
@@ -77,6 +75,8 @@ a:hover {
 .btn-primary {
   background: #FFCE00;
   color: rgb(14, 14, 14);
+  padding: 1rem 2rem;
+  margin: 0;
 }
 
 .btn-primary:hover, .btn-primary:focus {
@@ -86,10 +86,19 @@ a:hover {
 .btn-secondary {
   background: #7112e9;
   color: #ffffff;
+  padding: 1rem 2rem;
+  margin: 0;
 }
 
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary--small:hover,.btn-secondary--small:focus {
   background: #FFE05E;
+}
+
+.btn-secondary--small {
+   background: #7112e9;
+   color: #ffffff;
+   padding: 0.8rem 1.1rem;
+   margin: 0;
 }
 
 .btn-outline-primary {
