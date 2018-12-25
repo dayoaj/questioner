@@ -21,6 +21,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Meera Inimai';
+  src: url('./static/meera-inimai-v3-latin-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   box-sizing: border-box;
   font-size: 10px;
@@ -35,7 +42,7 @@ body {
   margin: 0;
   font-size: 1.5rem;
   line-height: 2;
-  font-family: 'Hammer Smith';
+  font-family: 'Meera Inimai';
 }
 
 a {
@@ -52,10 +59,11 @@ a:hover {
   display: inline-block;
   border: none;
   text-decoration: none;
-  font-family: sans-serif;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out, transform 150ms ease;
+  transition: background 250ms cubic-bezier(.79,.14,.15,.86), transform 150ms ease;
+  font-family: 'radnika_next';
+  border-radius: .3rem;  
 }
 
 .btn:focus {
@@ -65,11 +73,6 @@ a:hover {
 
 .btn:active {
   transform: scale(0.99);
-}
-
-.btn {
-  font-family: 'radnika_next';
-  border-radius: .3rem;  
 }
 
 .btn-primary {
@@ -97,8 +100,9 @@ a:hover {
 .btn-secondary--small {
    background: #7112e9;
    color: #ffffff;
-   padding: 0.8rem 1.1rem;
+   padding: 0.6rem 0.8rem;
    margin: 0;
+   font-size: 12px'';
 }
 
 .btn-outline-primary {
@@ -129,7 +133,6 @@ h1 {
 
 h2 {
   font-size: 2.5rem;
-  text-align: center;
   padding: 1.8rem 1rem;
 }
 
@@ -150,13 +153,7 @@ h5 {
 
 /*Wrap round body*/
 
-.wrapper {
-  display: flex;
-  flex-flow: column wrap;
-  min-height: 100vh;
-  align-items: stretch;
-  background-color: #fbf9da;
-}
+c
 
 .wrapper>header {
   flex: 1 0 0;
@@ -170,12 +167,14 @@ h5 {
   margin: 0 auto;
   flex-flow: column wrap;
   align-items: stretch;
+  background-color: cornsilk;
 }
-
-/* .wrapper>footer {
-  flex: 1 0 0;
-} */
-
+.article {
+  letter-spacing: .1px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+  
 /*=== Header ===*/
 
 header {
@@ -329,4 +328,6 @@ padding-right: 1em;
   .hero-text {
     max-width: 100%;
   }
+  
+  
 }
