@@ -28,7 +28,16 @@
                         <li><a class="header-link" href="index.html">Home</a></li>
                         <li><a class="header-link" href="#">About</a></li>
                         <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                        <li><a class="btn btn-outline-primary" href="signin.html">Sign in</a></li>
+                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
+                        <li class="profile-list-anchor">
+                            <div class="dropdown">
+                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
+                                <div class="dropdown-content">
+                                    <a href="profile.html">Profile</a>
+                                    <a href="dashboard.html">Dashboard</a>
+                                </div>    
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -44,9 +53,6 @@
                     <div class="meetup-article-subtitle">
                         <div class="meetup-article-details">
                             Published Dec 18, 2018
-                        </div>
-                        <div class="meetup-article-tags">
-                            <a href="#" class="tag">tech</a>
                         </div>
                     </div>
                 </div>
@@ -76,6 +82,28 @@
                             <div class="title--sm">Convener</div>
                             <div class="content--sm">James Richard</div>
                         </div>
+
+                        <p>Will you be attending this meetup:</p>
+
+                        <div>
+                            <input type="radio" id="yes" name="rsvp" value="yes" checked>
+                            <label for="yes">Yes</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="no" name="rsvp" value="no">
+                            <label for="no">No</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="maybe" name="rsvp" value="maybe">
+                            <label for="maybe">Maybe</label>
+                        </div>
+                    </div>
+                    <div class="meetup-article-tags">
+                        Tags:
+                            <a href="#" class="tag">technology</a>
+                            <a href="#" class="tag">hardware</a>
                     </div>
                 </div>
                 <div class="questions">
@@ -98,9 +126,44 @@
                                 <img src="static/user.png" alt="Meetup picture" class="img-style">
                             </div>
                             <div class="question-container">
-                                <div class="question-user-details"></div>
+                                <div class="question-user-details">
+                                    <span class="name">Peter John</span>
+                                    <span class="date">20th December, 2018</span>
+                                </div>
                                 <div class="question-content">Will there be food at the meet up?</div>
-                                <div class="question-footer"></div>
+                                <div class="question-footer">
+                                    <div class="footer-actions">
+                                        <button class="vote-icon">
+
+                                            <span class="align-vote-icon">
+                                                <img src="static/up-arrow-active.svg" alt="upvote">
+                                            </span>
+                                            <span class="align-vote-icon invisible">
+                                                <img src="static/up-arrow-inactive.svg" alt="upvote">
+                                            </span>
+                                        </button>
+                                        <div class="footer-actions__upvote-count">10</div>
+
+                                    </div>
+                                    <div class="footer-actions">
+                                        <button class="vote-icon">
+                                            <span class="align-vote-icon invisible">
+                                                <img src="static/down-arrow-active.svg" alt="downvote">
+                                            </span>
+                                            <span>
+                                                <img src="static/down-arrow_inactive.svg" alt="downvote">
+                                            </span>
+                                        </button>
+                                        <div class="footer-actions__downvote-count inactive">20</div>
+
+                                    </div>
+
+                                    <div class="footer-actions">
+                                        <a href="#">Comments</a>
+                                    </div>
+
+                                    <!-- question footer -->
+                                </div>
                             </div>
                         </div>
                     </div>

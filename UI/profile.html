@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- for favicon -->
+    <link rel="shortcut icon" href="./static/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./static/logo.png" alt="Questioner Logo">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a class="header-link" href="index.html">Home</a></li>
+                        <li><a class="header-link" href="#">About</a></li>
+                        <li><a class="header-link" href="meetup.html">Meetup</a></li>
+                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
+                        <li class="profile-list-anchor">
+                            <div class="dropdown">
+                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
+                                <div class="dropdown-content">
+                                    <a href="profile.html">Profile</a>
+                                    <a href="dashboard.html">Dashboard</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+
+            <div class="profile-body">
+                <div class="profile-details">
+                    <div class="profile-secondary">
+                        <div class="profile-img-wrap">
+                            <img src="static/profile.jpg" alt="Profile Picture">
+                            <span>Rose Adamu</span>
+                        </div>
+                        <div class="profile-buttons">
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-primary">Scheduled Meetups</button>
+                        </div>
+                    </div>
+                    <div class="profile-primary">
+                        <h2>Details</h2>
+                        <div class="profile-details-content">
+                            <div class="names">
+                                <span class="profile-detail-title">
+                                    Names
+                                </span>
+                                <span class="profile-detail-content">
+                                    Rose Nkechi Adamu
+                                </span>
+                            </div>
+                            <div class="email">
+                                    <span class="profile-detail-title">
+                                        Email
+                                    </span>
+                                    <span class="profile-detail-content">
+                                        rose.adamu@outlook.com
+                                    </span>
+
+                            </div>
+                            <div class="phone">
+                                    <span class="profile-detail-title">
+                                        Phone Number
+                                    </span>
+                                    <span class="profile-detail-content">
+                                        +2348034689946
+                                    </span>
+
+                            </div>
+                            <div class="change-password">
+                                <a href="#">Change Password</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-top-questions">
+                            <div class="list-box article">
+                                    <div class="list-head">
+                                        <h2>Top Questions</h2>
+                                    </div>
+                                    <div onclick="location.href='meetupdetails.html';" class="list-content">
+                                        <!-- 1 -->
+                                        <div class="list-text">
+                                            <div>
+                                                <p>
+                                                    Will there be buses to the Location?
+                                                </p>
+                                                <div class="meetup-title">Beach Volley Ball Sport Club </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                    
+                    
+                                    <!-- 2 -->
+                                    <div onclick="location.href='meetupdetails.html';" class="list-content">
+                                
+                                        <!-- 1 -->
+                                        <div class="list-text">
+                                            <div>
+                                                <p>
+                                                    What are the topics to read up on before the meetup?
+                                                </p>
+                                                <div class="meetup-title"> Lagos German Language Meetup </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                    
+                                    <!-- 3 -->
+                                    <div onclick="location.href='meetupdetails.html';" class="list-content">
+                                    
+                                        <div class="list-text">
+                                            <div>
+                                                <p>
+                                                    Will there be food at the event?
+                                                </p>
+                                                <div class="meetup-title">Internet of Things Meetup </div>
+
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                    
+                                    <!-- 4 -->
+                                    <div onclick="location.href='meetupdetails.html';" class="list-content">
+                                        <div class="list-text">
+                                            <div>  
+                                                <p>
+                                                    How can I get the hoodies for this meetup?
+                                                </p>
+                                                <div class="meetup-title">Women in Tech Meetup</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                    
+                                    <!-- 5 -->
+                                    <div onclick="location.href='meetupdetails.html';" class="list-content">
+                                       
+                                        <!-- 1 -->
+                                        <div class="list-text">
+                                            <div> 
+                                                <p>
+                                                    How much is the entry fee?
+                                                </p>
+                                                <div class="meetup-title">Fitness and Exercise Meetup</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                    
+                                </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <h2>Statistics</h2>
+                    <div class="stats">
+                        <div class="stats-text">Number of Questions Posted</div>
+                        <div class="stats-number">9</div>
+                    </div>
+                    <div class="stats">
+                            <div class="stats-text">Number of Questions User as Commented On</div>
+                            <div class="stats-number">10</div>
+                        </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="copyright">
+                © 2018-2019 Copyright
+            </div>
+            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
+        </footer>
+    </div>
+</body>
+
+</html>
