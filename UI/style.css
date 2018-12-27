@@ -153,8 +153,6 @@ h5 {
 
 /*Wrap round body*/
 
-c
-
 .wrapper>header {
   flex: 1 0 0;
 }
@@ -346,7 +344,7 @@ section img {
 
 /*=== Footer ===*/
 footer {
-  min-height: 10vh;
+  min-height: 9vh;
   background-color: rgb(14, 14, 14);
   padding-top: 15px;
   display: flex;
