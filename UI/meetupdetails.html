@@ -16,32 +16,32 @@
 
 <body>
     <div class="wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="./static/logo.png" alt="Questioner Logo">
-                    </a>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a class="header-link" href="index.html">Home</a></li>
-                        <li><a class="header-link" href="#">About</a></li>
-                        <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
-                        <li class="profile-list-anchor">
-                            <div class="dropdown">
-                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
-                                <div class="dropdown-content">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="dashboard.html">Dashboard</a>
-                                </div>    
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+            <header>
+                    <div class="container">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./static/logo.png" alt="Questioner Logo">
+                            </a>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a class="header-link" href="index.html">Home</a></li>
+                                <li><a class="header-link" href="#">About</a></li>
+                                <li><a class="header-link" href="meetup.html">Meetup</a></li>
+                                <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
+                                <li class="profile-list-anchor">
+                                    <div class="dropdown">
+                                        <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
+                                        <div class="dropdown-content">
+                                            <a href="profile.html">Profile</a>
+                                            <a href="dashboard.html">Dashboard</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
         <main>
             <div class="meetup-details-body">
 
@@ -65,8 +65,7 @@
                         <p>
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                             laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                            architecto
-                            beatae vitae dicta sunt explicabo.
+                            architecto beatae vitae dicta sunt explicabo.
                         </p>
                     </div>
                     <div class="meetup-details-container">
@@ -82,28 +81,31 @@
                             <div class="title--sm">Convener</div>
                             <div class="content--sm">James Richard</div>
                         </div>
+                        <form action="">
+                            <p>Will you be attending this meetup:</p>
 
-                        <p>Will you be attending this meetup:</p>
+                            <div>
+                                <input type="radio" id="yes" name="rsvp" value="yes" checked>
+                                <label for="yes">Yes</label>
+                            </div>
 
-                        <div>
-                            <input type="radio" id="yes" name="rsvp" value="yes" checked>
-                            <label for="yes">Yes</label>
-                        </div>
+                            <div>
+                                <input type="radio" id="no" name="rsvp" value="no">
+                                <label for="no">No</label>
+                            </div>
 
-                        <div>
-                            <input type="radio" id="no" name="rsvp" value="no">
-                            <label for="no">No</label>
-                        </div>
+                            <div>
+                                <input type="radio" id="maybe" name="rsvp" value="maybe">
+                                <label for="maybe">Maybe</label>
+                            </div>
+                            <input class="btn btn-secondary rsvp-submit" type="submit" value="RSVP">
+                        </form>
 
-                        <div>
-                            <input type="radio" id="maybe" name="rsvp" value="maybe">
-                            <label for="maybe">Maybe</label>
-                        </div>
                     </div>
                     <div class="meetup-article-tags">
                         Tags:
-                            <a href="#" class="tag">technology</a>
-                            <a href="#" class="tag">hardware</a>
+                        <a href="#" class="tag">technology</a>
+                        <a href="#" class="tag">hardware</a>
                     </div>
                 </div>
                 <div class="questions">
@@ -121,6 +123,8 @@
                         </div>
                     </div>
                     <div class="other-questions">
+
+                        <!-- 1 -->
                         <div class="question">
                             <div class="avatar-q">
                                 <img src="static/user.png" alt="Meetup picture" class="img-style">
@@ -166,6 +170,55 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- 2 -->
+                        <div class="question">
+                            <div class="avatar-q">
+                                <img src="static/user.png" alt="Meetup picture" class="img-style">
+                            </div>
+                            <div class="question-container">
+                                <div class="question-user-details">
+                                    <span class="name">Peter John</span>
+                                    <span class="date">20th December, 2018</span>
+                                </div>
+                                <div class="question-content">Can we come with pets?</div>
+                                <div class="question-footer">
+                                    <div class="footer-actions">
+                                        <button class="vote-icon">
+
+                                            <span class="align-vote-icon invisible">
+                                                <img src="static/up-arrow-active.svg" alt="upvote">
+                                            </span>
+                                            <span class="align-vote-icon">
+                                                <img src="static/up-arrow-inactive.svg" alt="upvote">
+                                            </span>
+                                        </button>
+                                        <div class="footer-actions__upvote-count inactive">2</div>
+
+                                    </div>
+                                    <div class="footer-actions">
+                                        <button class="vote-icon">
+                                            <span class="align-vote-icon">
+                                                <img src="static/down-arrow-active.svg" alt="downvote">
+                                            </span>
+                                            <span class="align-vote-icon invisible">
+                                                <img src="static/down-arrow_inactive.svg" alt="downvote">
+                                            </span>
+                                        </button>
+                                        <div class="footer-actions__downvote-count ">6</div>
+
+                                    </div>
+
+                                    <div class="footer-actions">
+                                        <a href="#">Comments</a>
+                                    </div>
+
+                                    <!-- question footer -->
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
