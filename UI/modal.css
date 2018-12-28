@@ -18,15 +18,33 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 37%;
+    height: 40%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
   }
+
+.modal-body {
+  flex-basis: 60%;
+  font-weight: bold;
+}
+
+.response {
+  background-color: red;
+}
+
+.modal-footer{
+  align-self: flex-end;
+}
   
   /* The Close Button */
   .close {
     color: #aaaaaa;
-    float: right;
+    align-self: flex-end;
     font-size: 28px;
     font-weight: bold;
+    line-height: 1;
   }
   
   .close:hover,
