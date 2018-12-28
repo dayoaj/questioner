@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- for favicon -->
+    <link rel="shortcut icon" href="./static/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="forms.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+            <header>
+                    <div class="container">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./static/logo.png" alt="Questioner Logo">
+                            </a>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a class="header-link" href="index.html">Home</a></li>
+                                <li><a class="header-link" href="#">About</a></li>
+                                <li><a class="header-link" href="meetup.html">Meetup</a></li>
+                                <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
+                                <li class="profile-list-anchor">
+                                    <div class="dropdown">
+                                        <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
+                                        <div class="dropdown-content">
+                                            <a href="profile.html">Profile</a>
+                                            <a href="dashboard.html">Dashboard</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+        <main>
+            <div class="card signup-wrap">
+                <div class="top">
+                    <h1>Add MeetUp</h1>
+
+                </div>
+                <div class="input-set">
+                    <label for="topic">Topic</label>
+                    <input type="text" name="topic" id="topic" tabindex="0" autocorrect="off" spellcheck="false"
+                        autocapitalize="off" value="" autofocus="">
+                </div>
+                <div class="input-set">
+                    <label for="intro">Brief Intro</label>
+                    <textarea name="intro" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="input-set">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" tabindex="0" autocorrect="off" spellcheck="false"
+                        autocapitalize="off" value="" autofocus="">
+                </div>
+                <div class="input-set">
+                        <label for="date">Time</label>
+                        <input type="time" name="time" id="time" tabindex="0" autocorrect="off" spellcheck="false"
+                            autocapitalize="off" value="" autofocus="">
+                    </div>
+
+                <div class="input-set">
+                    <label for="name">Tags</label>
+                    <input type="text" name="username" id="username" tabindex="0" autocorrect="off" spellcheck="false"
+                        autocapitalize="off" value="" autofocus="" placeholder="technology, programming, react">
+                </div>
+                <div class="input-set">
+                    <label for="avatar">Meetup Image:</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+
+                </div>
+                <div class="input-set">
+                    <input id="add-meetup-btn" tabindex="0" type="button" class="btn btn-secondary" value="Add"
+                        disabled="">
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="copyright">
+                © 2018-2019 Copyright
+            </div>
+            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
+        </footer>
+    </div>
+</body>
+
+</html>
