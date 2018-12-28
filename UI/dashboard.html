@@ -45,7 +45,7 @@
         <main>
             <div class="dashboard-wrap">
                 <section class="add-new-meetup">
-                    <button class="btn btn-secondary">Add New Meetup</button>
+                    <button class="btn btn-secondary" onclick="location.href='addmeetup.html';">Add New Meetup</button>
                 </section>
                 <section class="meetup-table">
                     <h2>Meetups</h2>
@@ -59,12 +59,12 @@
                         <tr>
                             <td>Beach Volley Ball Sport Club</td>
                             <td>
-                                <a href="#">
+                                <a href="editmeetup.html">
                                     <img src="static/baseline-edit-24px.svg" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="#" id="myBtn">
+                                <a href="#" class="delete-btn">
                                     <img src="static/baseline-delete-24px.svg" alt="">
                                 </a>
                             </td>
@@ -72,12 +72,12 @@
                         <tr>
                             <td>Lagos German Language Meetup</td>
                             <td>
-                                <a href="#">
+                                <a href="editmeetup.html">
                                     <img src="static/baseline-edit-24px.svg" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="#" class="delete-btn">
                                     <img src="static/baseline-delete-24px.svg" alt="">
                                 </a>
                             </td>
@@ -85,12 +85,12 @@
                         <tr>
                             <td>Internet of Things Meetup </td>
                             <td>
-                                <a href="#">
+                                <a href="editmeetup.html">
                                     <img src="static/baseline-edit-24px.svg" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="#" class="delete-btn">
                                     <img src="static/baseline-delete-24px.svg" alt="">
                                 </a>
                             </td>
@@ -98,34 +98,48 @@
                         <tr>
                             <td>Women in Tech Meetup</td>
                             <td>
-                                <a href="#">
+                                <a href="editmeetup.html">
                                     <img src="static/baseline-edit-24px.svg" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="#" class="delete-btn">
                                     <img src="static/baseline-delete-24px.svg" alt="">
                                 </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Fitness and Exercise Meetup</td>
-                            <td><img src="static/baseline-edit-24px.svg" alt=""></td>
-                            <td><img src="static/baseline-delete-24px.svg" alt=""></td>
+                            <td>
+                                <a href="editmeetup.html">
+
+                                    <img src="static/baseline-edit-24px.svg" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                    <a href="#" class="delete-btn">
+
+                                        <img src="static/baseline-delete-24px.svg" alt="">
+                                    </a>
+                            </td>
                         </tr>
                     </table>
-                    <div id="myModal" class="modal">
+                    <div class="modal">
 
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                              <span class="close">&times;</span>
-                              <p>Are you sure to delete?</p>
-                            </div>
-                          
-                          </div>
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p class="modal-body">Are you sure to delete?</p>
+                            <span class="modal-footer">
+                                <button class="btn btn-outline-primary response">No</button>
+                                <button class="btn btn-outline-primary response">Yes</button>
+                            </span>
+                        </div>
+
+                    </div>
                 </section>
             </div>
-            
+
         </main>
 
         <footer>
@@ -136,19 +150,28 @@
         </footer>
     </div>
     <script>
-        const modal =  document.getElementById('myModal');
-        const btn = document.getElementById('myBtn');
+        const modal = document.querySelector('.modal');
+        const btn = document.querySelectorAll('.delete-btn');
+        const response = document.querySelectorAll('.response');
         const span = document.getElementsByClassName('close')[0];
 
-        btn.onclick = function (){
-            modal.style.display = "block";
-        }
+        btn.forEach((a) => {
+            a.addEventListener('click', function() {
+                modal.style.display = "block";
+            });
+        });
 
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
         }
 
-        window.onclick = function(event) {
+        response.forEach((a) => {
+            a.addEventListener('click', function() {
+            modal.style.display = "none";
+            });
+        });
+
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
