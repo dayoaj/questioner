@@ -18,8 +18,8 @@ class Question {
   create(data) {
     const newQuestion = {
       id: uuid.v4(),
-      createdOn: moment.now(),
-      createdBy: data.createdBy || '',
+      createdOn: moment(),
+      createdBy: data.createdBy || null,
       meetup: data.meetup || null,
       title: data.title || '',
       body: data.body || '',
