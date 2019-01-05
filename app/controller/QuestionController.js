@@ -40,7 +40,7 @@ const QuestionController = {
     const question = Question.vote(req.params.id, 'upvote');
     if (!question) {
       return res.status(404).send({
-        status: 400,
+        status: 404,
         error: 'Question not found'
       });
     }
@@ -54,7 +54,7 @@ const QuestionController = {
     const question = Question.downvote(req.params.id, 'downvote');
     if (!question) {
       return res.status(404).send({
-        status: 400,
+        status: 404,
         error: 'Question not found'
       });
     }
