@@ -41,7 +41,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 1.5rem;
-  line-height: 2;
+  line-height: 1.5;
   font-family: 'Meera Inimai';
 }
 
@@ -61,9 +61,9 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms cubic-bezier(.79,.14,.15,.86), transform 150ms ease;
+  transition: background 250ms cubic-bezier(.79, .14, .15, .86), transform 150ms ease;
   font-family: 'radnika_next';
-  border-radius: .3rem;  
+  border-radius: .3rem;
 }
 
 .btn:focus {
@@ -93,16 +93,16 @@ a:hover {
   margin: 0;
 }
 
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary--small:hover,.btn-secondary--small:focus {
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary--small:hover, .btn-secondary--small:focus {
   background: #FFE05E;
 }
 
 .btn-secondary--small {
-   background: #7112e9;
-   color: #ffffff;
-   padding: 0.6rem 0.8rem;
-   margin: 0;
-   font-size: 12px'';
+  background: #7112e9;
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  margin: 0;
+  font-size: 12px'';
 }
 
 .btn-outline-primary {
@@ -167,6 +167,7 @@ h5 {
   align-items: stretch;
   background-color: cornsilk;
 }
+
 .article {
   letter-spacing: .1px;
   font-weight: 400;
@@ -176,7 +177,7 @@ h5 {
 .invisible {
   display: none;
 }
-  
+
 /*=== Header ===*/
 
 header {
@@ -198,7 +199,6 @@ header .container {
   height: 7.5rem;
 }
 
-
 .header-avatar {
   width: 4.5rem;
   height: 4.5rem;
@@ -207,16 +207,15 @@ header .container {
 }
 
 .header-avatar img {
-    position: absolute;
-    object-fit: cover;
-    border-radius: 50%;
-    left: 0;
-    top: 0;
-    background-position: 50%;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  background-position: 50%;
+  width: 100%;
+  height: 100%;
 }
-
 
 .card {
   border: 1px solid rgb(167, 165, 165);
@@ -295,7 +294,7 @@ nav li {
   right: 0;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -306,9 +305,13 @@ nav li {
   display: block;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 section#hero {
   background: white;
@@ -343,6 +346,7 @@ section img {
 }
 
 /*=== Footer ===*/
+
 footer {
   min-height: 9vh;
   background-color: rgb(14, 14, 14);
@@ -357,10 +361,8 @@ footer a {
 }
 
 .copyright {
-padding-right: 1em;
+  padding-right: 1em;
 }
-
-
 
 @media all and (max-width: 800px) {
   nav>ul {
@@ -385,6 +387,4 @@ padding-right: 1em;
   .hero-text {
     max-width: 100%;
   }
-  
-  
 }
