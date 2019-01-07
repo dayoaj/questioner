@@ -29,7 +29,13 @@ class Question {
     this.obj = obj;
     this.obj.questions.push(newQuestion);
     fs.writeFileSync('app/models/db.json', JSON.stringify(this.obj), 'utf8');
-    return newQuestion;
+    return {
+      id: newQuestion.id,
+      user: newQuestion.createdBy,
+      meetup: newQuestion.meetup,
+      title: newQuestion.title,
+      body: newQuestion.body
+    };
   }
 
   vote(id, mode) {
