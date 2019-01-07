@@ -14,7 +14,7 @@ const MeetupController = {
    * @returns {object} res
    */
   create(req, res) {
-    if (!req.body.location || !req.body.topic || !req.body.body || !req.body.happeningOn) {
+    if (!req.body.location || !req.body.topic || !req.body.happeningOn) {
       return res.status(400).send({
         status: 400,
         error: 'Some required parameters to create meetup are missing'

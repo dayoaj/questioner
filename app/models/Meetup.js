@@ -25,13 +25,19 @@ class Meetup {
       topic: data.topic || '',
       body: data.body || '',
       happeningOn: data.happeningOn || null,
-      tags: data.tags || []
+      tags: data.tags || [],
+      convener: data.convener || ''
     };
     const obj = JSON.parse(fs.readFileSync('app/models/db.json', 'utf8'));
     this.obj = obj;
     this.obj.meetups.push(newMeetup);
     fs.writeFileSync('app/models/db.json', JSON.stringify(this.obj), 'utf8');
-    return newMeetup;
+    return {
+      topic: newMeetup.topic,
+      location: newMeetup.location,
+      happeningOn: newMeetup.happeningOn,
+      tags: newMeetup.tags
+    };
   }
 
   /**
