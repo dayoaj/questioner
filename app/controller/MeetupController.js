@@ -111,6 +111,20 @@ const MeetupController = {
    *
    * @param {object} req
    * @param {object} res
+   * @returns {json} res
+   */
+  getAllRSVP(req, res) {
+    const meetups = Meetup.findAllRSVP();
+    return res.status(200).send({
+      status: 200,
+      data: meetups
+    });
+  },
+
+  /**
+   *
+   * @param {object} req
+   * @param {object} res
    * @returns {object} res
    */
   getUpcoming(req, res) {
