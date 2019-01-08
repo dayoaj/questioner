@@ -44,8 +44,8 @@ class Question {
     const question = this.findOne(id);
     const index = this.obj.questions.indexOf(question);
     const { votes } = question;
-    if (votes > 0 && mode === 'upvote') this.obj.questions[index].votes = votes + 1;
-    if (votes > 0 && mode === 'downvote') this.obj.questions[index].votes = votes - 1;
+    if (mode === 'upvote') this.obj.questions[index].votes = votes + 1;
+    if (mode === 'downvote') this.obj.questions[index].votes = votes - 1;
     fs.writeFileSync('app/models/db.json', JSON.stringify(this.obj), 'utf8');
     return this.obj.questions[index];
   }
