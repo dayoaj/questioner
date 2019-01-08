@@ -21,6 +21,19 @@ const QuestionController = {
       data: [question]
     });
   },
+  /**
+   *
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} questions object
+   */
+  getOne(req, res) {
+    const question = Question.findOne(req.params.id);
+    return res.status(200).send({
+      status: 200,
+      data: [question]
+    });
+  },
 
   /**
    *
@@ -51,7 +64,7 @@ const QuestionController = {
   },
 
   downvote(req, res) {
-    const question = Question.downvote(req.params.id, 'downvote');
+    const question = Question.vote(req.params.id, 'downvote');
     if (!question) {
       return res.status(404).send({
         status: 404,
