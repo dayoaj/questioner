@@ -1,7 +1,7 @@
 import http from 'http';
 import express from 'express';
 import morgan from 'morgan';
-import routes from './app/controller';
+import routes from './app/routes';
 // import meetups from './app/controller/MeetupController';
 
 const app = express();
