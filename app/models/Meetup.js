@@ -52,6 +52,17 @@ class Meetup {
   }
 
   /**
+   *
+   * @param {uuid} id
+   * @returns {object} question object
+   */
+  findAllRSVP() {
+    const obj = JSON.parse(fs.readFileSync('app/models/db.json', 'utf8'));
+    this.obj = obj;
+    return this.obj.rsvps;
+  }
+
+  /**
    *@param {req.body} data
    * @returns {object} meetup object
    */
