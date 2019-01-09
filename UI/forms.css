@@ -7,46 +7,46 @@
 } */
 
 .signup-wrap {
-	margin: 2rem auto;
-	padding: 1rem 2rem;
-	width: 60%;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  width: 60%;
 }
 
 .signin-wrap {
-	margin: 2rem auto;
-	padding: 1rem 2rem;
-	width: 35%;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  width: 35%;
 }
 
 .input-set {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
-	background: #edeff0;
-	border-radius: 4px;
-	border: 1px solid #cdd2d4;
-	box-sizing: border-box;
-	padding: .5em;
-	width: 100%;
+  background: #edeff0;
+  border-radius: 4px;
+  border: 1px solid #cdd2d4;
+  box-sizing: border-box;
+  padding: .5em;
+  width: 100%;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
-	font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 label {
-	font-size: 1.45rem;
+  font-size: 1.45rem;
 }
 
 .right {
-	align-self: flex-end;
+  align-self: flex-end;
 }
 
 @media all and (max-width: 650px) {
-	.signup-wrap, .signin-wrap {
-		width: 90%;
-	}
+  .signup-wrap, .signin-wrap {
+    width: 90%;
+  }
 }

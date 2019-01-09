@@ -1,181 +1,179 @@
 .profile-body {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .profile-details {
-    display: flex;
-    justify-content: space-between;
-    padding: .6rem 1.2rem;
-    flex-direction: column;
-    width: 45%
+  display: flex;
+  justify-content: space-between;
+  padding: .6rem 1.2rem;
+  flex-direction: column;
+  width: 45%
 }
 
 .profile-secondary {
-    display: flex;
-    justify-content: space-around;
-    padding-left: 1rem;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 1rem;
 }
 
 .profile-img-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-items: sp;
+  display: flex;
+  flex-direction: column;
+  justify-items: sp;
 }
 
 .schedule-btn {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
-.username{
-    padding-top: 1rem;
-    font-weight: bold;
-    font-size: 1.8rem;
+.username {
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
-
 
 .profile-detail-title {
-    font-size: 2rem;
-    color: #a19e9e;
-    padding-right: 2rem;
-    width: 30%;
-    display: inline-block;
-    line-height: 1.8rem;
+  font-size: 2rem;
+  color: #a19e9e;
+  padding-right: 2rem;
+  width: 30%;
+  display: inline-block;
+  line-height: 1.8rem;
 }
 
 .profile-detail-content {
-    font-size: 2.3rem;
+  font-size: 2.3rem;
 }
 
 .profile-stats {
-    background-color: #f3f3f3;
-    margin: .6rem auto;
-    padding: 1.8rem 1.3rem;
-    border-radius: 10px;
-    border: .4px solid #efefef;
-    width: 100%;
+  background-color: #f3f3f3;
+  margin: .6rem auto;
+  padding: 1.8rem 1.3rem;
+  border-radius: 10px;
+  border: .4px solid #efefef;
+  width: 100%;
 }
 
 .profile-stats .stats {
-    display: flex;
-    border-bottom: 1px solid #efefef;
-    align-items: center;
+  display: flex;
+  border-bottom: 1px solid #efefef;
+  align-items: center;
 }
 
 .stats:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .stats-text {
-    width: 30%;
+  width: 30%;
 }
 
 .stats-number {
-    font-size: 3rem;
-    font-style: italic;
-    padding-left: 5rem;
+  font-size: 3rem;
+  font-style: italic;
+  padding-left: 5rem;
 }
 
 .change-password {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .list-content {
-    border-bottom: 1px solid #e6ecf0;
-    cursor: pointer;
-    max-height: 10rem;
-    display: flex;
-    padding: 1rem 1rem;
-    background-color: #f3f3f3;
+  border-bottom: 1px solid #e6ecf0;
+  cursor: pointer;
+  max-height: 10rem;
+  display: flex;
+  padding: 1rem 1rem;
+  background-color: #f3f3f3;
 }
 
 .list-content:hover {
-    background-color: rgb(255, 245, 203);
+  background-color: rgb(255, 245, 203);
 }
 
 .list-content .meetup-title {
-    font-size: 1.3rem;
-    color: #999;
-    font-style: italic;
+  font-size: 1.3rem;
+  color: #999;
+  font-style: italic;
 }
 
 .list-text p {
-    padding: 0;
-    margin: .8rem 0;
-    font-size: 1.6rem;
+  padding: 0;
+  margin: .8rem 0;
+  font-size: 1.6rem;
 }
 
 .question-footer {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    color: #aaa;
-    height: 18px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  height: 18px;
 }
 
 .footer-actions {
-    display: flex;
-    padding-left: 1rem;
+  display: flex;
+  padding-left: 1rem;
 }
 
 .footer-actions a {
-    color: #bbb
+  color: #bbb
 }
 
 .footer-actions a:hover, .footer-actions a:active {
-    color: #999;
+  color: #999;
 }
 
 .footer-actions__upvote-count {
-    color: #91DC5A;
+  color: #91DC5A;
 }
 
 .footer-actions__downvote-count {
-    color: #E0245E;
+  color: #E0245E;
 }
 
 .align-vote-icon {
-    position: relative;
+  position: relative;
 }
 
 .vote-icon {
-    margin: 0;
-    cursor: pointer;
-    overflow: visible;
-    display: inline-block;
-    position: relative;
-    background: transparent;
-    border: 0;
-    transition: .1s background-color, .1s border-color, .1s color, .1s fill;
+  margin: 0;
+  cursor: pointer;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  background: transparent;
+  border: 0;
+  transition: .1s background-color, .1s border-color, .1s color, .1s fill;
 }
 
 .footer-actions__upvote-count {
-    color: #91DC5A;
+  color: #91DC5A;
 }
 
 .footer-actions__downvote-count {
-    color: #E0245E;
+  color: #E0245E;
 }
 
 .inactive {
-    color: #c1c1c1;
+  color: #c1c1c1;
 }
 
 @media all and (max-width: 1000px) {
-    .profile-body {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .profile-details, .profile-top-questions {
-        width: 90%;
-    }
+  .profile-body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-details, .profile-top-questions {
+    width: 90%;
+  }
 }

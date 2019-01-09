@@ -242,7 +242,7 @@ nav li {
   position: relative;
 }
 
-nav .btn-outline-primary:hover{
+nav .btn-outline-primary:hover {
   color: white;
 }
 
@@ -258,8 +258,6 @@ nav .btn-outline-primary:hover{
 .header-link:hover {
   color: rgba(245, 244, 244);
 }
-
-
 
 .header-link::after {
   content: '';
