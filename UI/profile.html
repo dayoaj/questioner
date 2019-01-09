@@ -1,365 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- for favicon -->
-    <link rel="shortcut icon" href="./static/favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="profile.css">
-    <link rel="stylesheet" href="modal.css">
-    <link rel="stylesheet" href="forms.css">
+    <link rel="shortcut icon" href="./static/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="forms.css" />
 
     <title>Profile</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="./static/logo.png" alt="Questioner Logo">
-                    </a>
+      <header>
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./static/logo.png" alt="Questioner Logo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li><a class="header-link" href="index.html">Home</a></li>
+
+              <li><a class="header-link" href="meetup.html">Meetup</a></li>
+              <li class="invisible">
+                <a class="btn btn-outline-primary " href="signin.html"
+                  >Sign in</a
+                >
+              </li>
+              <li class="profile-list-anchor">
+                <div class="dropdown">
+                  <a class="header-avatar dropbtn" href="profile.html"
+                    ><img src="static/profile.jpg" alt="profile-avatar"
+                  /></a>
+                  <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="dashboard.html">Dashboard</a>
+                  </div>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a class="header-link" href="index.html">Home</a></li>
-                        <li><a class="header-link" href="#">About</a></li>
-                        <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
-                        <li class="profile-list-anchor">
-                            <div class="dropdown">
-                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
-                                <div class="dropdown-content">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="dashboard.html">Dashboard</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="profile-body">
+          <div class="profile-details">
+            <h2>Profile</h2>
+            <div class="profile-secondary">
+              <div class="profile-img-wrap">
+                <img src="static/profile.jpg" alt="Profile Picture" />
+                <span class="username">Rose01</span>
+              </div>
+              <div class="profile-buttons">
+                <button
+                  class="btn btn-primary"
+                  onclick="location.href='editprofile.html';"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-primary schedule-btn "
+                  onclick="location.href='meetup.html';"
+                >
+                  Scheduled Meetups
+                </button>
+              </div>
             </div>
-        </header>
-        <main>
-
-            <div class="profile-body">
-                <div class="profile-details">
-                    <div class="profile-secondary">
-                        <div class="profile-img-wrap">
-                            <img src="static/profile.jpg" alt="Profile Picture">
-                            <span class="username">Rose01</span>
-                        </div>
-                        <div class="profile-buttons">
-                            <button class="btn btn-primary" onclick="location.href='editprofile.html';">Edit</button>
-                            <button class="btn btn-primary schedule-btn " onclick="location.href='meetup.html';">Scheduled
-                                Meetups</button>
-                        </div>
-                    </div>
-                    <div class="profile-primary">
-                        <h2>Details</h2>
-                        <div class="profile-details-content">
-                            <div class="names">
-                                <span class="profile-detail-title">
-                                    Names
-                                </span>
-                                <span class="profile-detail-content">
-                                    Rose Nkechi Adamu
-                                </span>
-                            </div>
-                            <div class="email">
-                                <span class="profile-detail-title">
-                                    Email
-                                </span>
-                                <span class="profile-detail-content">
-                                    rose.adamu@outlook.com
-                                </span>
-
-                            </div>
-                            <div class="phone">
-                                <span class="profile-detail-title">
-                                    Phone Number
-                                </span>
-                                <span class="profile-detail-content">
-                                    +2348034689946
-                                </span>
-
-                            </div>
-                            <div class="change-password">
-                                <a href="#" id="change-password-btn">Change Password</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <form action="#">
-                                <div class="modal-body">
-                                    <input type="text" name="current-password" tabindex="0" autocorrect="off"
-                                        spellcheck="false" autocapitalize="off" value="" autofocus="" placeholder="Current Password">
-                                    <input type="text" name="current-password" tabindex="0" autocorrect="off"
-                                        spellcheck="false" autocapitalize="off" value="" autofocus="" placeholder="New Password">
-                                    <input type="text" name="current-password" tabindex="0" autocorrect="off"
-                                        spellcheck="false" autocapitalize="off" value="" autofocus="" placeholder="Confirm New Password">
-                                </div>
-                                <span class="modal-footer">
-                                    <input type="submit" class="btn btn-outline-primary response" value="Confirm">
-                                </span>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="profile-top-questions">
-                        <div class="list-box article">
-                            <div class="list-head">
-                                <h2>Top Questions</h2>
-                            </div>
-                            <div onclick="location.href='question.html';" class="list-content">
-                                <!-- 1 -->
-                                <div class="list-text">
-                                    <div>
-                                        <p>
-                                            Will there be buses to the Location?
-                                        </p>
-                                        <div class="question-footer">
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-
-                                                    <span class="align-vote-icon">
-                                                        <img src="static/up-arrow-active.svg" alt="upvote">
-                                                    </span>
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/up-arrow-inactive.svg" alt="upvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__upvote-count">10</div>
-
-                                            </div>
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/down-arrow-active.svg" alt="downvote">
-                                                    </span>
-                                                    <span>
-                                                        <img src="static/down-arrow_inactive.svg" alt="downvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__downvote-count inactive">20</div>
-
-                                            </div>
-
-                                            <div class="footer-actions">
-                                                <a href="#">Comments</a>
-                                            </div>
-
-                                            <!-- question footer -->
-                                        </div>
-                                        <div class="meetup-title">Beach Volley Ball Sport Club </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <!-- 2 -->
-                            <div onclick="location.href='question.html';" class="list-content">
-
-                                <!-- 1 -->
-                                <div class="list-text">
-                                    <div>
-                                        <p>
-                                            What topics are we to read up on before the meetup?
-                                        </p>
-                                        <div class="question-footer">
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-
-                                                    <span class="align-vote-icon">
-                                                        <img src="static/up-arrow-active.svg" alt="upvote">
-                                                    </span>
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/up-arrow-inactive.svg" alt="upvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__upvote-count">10</div>
-
-                                            </div>
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/down-arrow-active.svg" alt="downvote">
-                                                    </span>
-                                                    <span>
-                                                        <img src="static/down-arrow_inactive.svg" alt="downvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__downvote-count inactive">20</div>
-
-                                            </div>
-
-                                            <div class="footer-actions">
-                                                <a href="#">Comments</a>
-                                            </div>
-
-                                            <!-- question footer -->
-                                        </div>
-                                        <div class="meetup-title"> Lagos German Language Meetup </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- 3 -->
-                            <div onclick="location.href='question.html;" class="list-content">
-
-                                <div class="list-text">
-                                    <div>
-                                        <p>
-                                            Will there be food at the event?
-                                        </p>
-                                        <div class="question-footer">
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-
-                                                    <span class="align-vote-icon">
-                                                        <img src="static/up-arrow-active.svg" alt="upvote">
-                                                    </span>
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/up-arrow-inactive.svg" alt="upvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__upvote-count">10</div>
-
-                                            </div>
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/down-arrow-active.svg" alt="downvote">
-                                                    </span>
-                                                    <span>
-                                                        <img src="static/down-arrow_inactive.svg" alt="downvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__downvote-count inactive">20</div>
-
-                                            </div>
-
-                                            <div class="footer-actions">
-                                                <a href="#">Comments</a>
-                                            </div>
-
-                                            <!-- question footer -->
-                                        </div>
-                                        <div class="meetup-title">Internet of Things Meetup </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- 4 -->
-                            <div onclick="location.href='question.html';" class="list-content">
-                                <div class="list-text">
-                                    <div>
-                                        <p>
-                                            How can I get the hoodies for this meetup?
-                                        </p>
-                                        <div class="question-footer">
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-
-                                                    <span class="align-vote-icon">
-                                                        <img src="static/up-arrow-active.svg" alt="upvote">
-                                                    </span>
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/up-arrow-inactive.svg" alt="upvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__upvote-count">10</div>
-
-                                            </div>
-                                            <div class="footer-actions">
-                                                <button class="vote-icon">
-                                                    <span class="align-vote-icon invisible">
-                                                        <img src="static/down-arrow-active.svg" alt="downvote">
-                                                    </span>
-                                                    <span>
-                                                        <img src="static/down-arrow_inactive.svg" alt="downvote">
-                                                    </span>
-                                                </button>
-                                                <div class="footer-actions__downvote-count inactive">20</div>
-
-                                            </div>
-
-                                            <div class="footer-actions">
-                                                <a href="#">Comments</a>
-                                            </div>
-
-                                            <!-- question footer -->
-                                        </div>
-                                        <div class="meetup-title">Women in Tech Meetup</div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+            <div class="profile-details-content">
+              <div class="names">
+                <span class="profile-detail-title"> Names </span>
+                <span class="profile-detail-content"> Rose Nkechi Adamu </span>
+              </div>
+              <div class="email">
+                <span class="profile-detail-title"> Email </span>
+                <span class="profile-detail-content">
+                  rose.adamu@outlook.com
+                </span>
+              </div>
+              <div class="phone">
+                <span class="profile-detail-title"> Phone Number </span>
+                <span class="profile-detail-content"> +2348034689946 </span>
+              </div>
+              <div class="change-password">
+                <a href="#" id="change-password-btn">Change Password</a>
+              </div>
+            </div>
+            <div class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="#">
+                  <div class="modal-body">
+                    <input
+                      type="text"
+                      name="current-password"
+                      tabindex="0"
+                      autocorrect="off"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value=""
+                      autofocus=""
+                      placeholder="Current Password"
+                    />
+                    <input
+                      type="text"
+                      name="current-password"
+                      tabindex="0"
+                      autocorrect="off"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value=""
+                      autofocus=""
+                      placeholder="New Password"
+                    />
+                    <input
+                      type="text"
+                      name="current-password"
+                      tabindex="0"
+                      autocorrect="off"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value=""
+                      autofocus=""
+                      placeholder="Confirm New Password"
+                    />
+                  </div>
+                  <span class="modal-footer">
+                    <input
+                      type="submit"
+                      class="btn btn-outline-primary response"
+                      value="Confirm"
+                    />
+                  </span>
+                </form>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <h3>Statistics</h3>
+              <div class="stats">
+                <div class="stats-text">Number of Questions Posted</div>
+                <div class="stats-number">9</div>
+              </div>
+              <div class="stats">
+                <div class="stats-text">
+                  Number of Questions User as Commented On
                 </div>
-                <div class="profile-stats">
-                    <h3>Statistics</h3>
-                    <div class="stats">
-                        <div class="stats-text">Number of Questions Posted</div>
-                        <div class="stats-number">9</div>
-                    </div>
-                    <div class="stats">
-                        <div class="stats-text">Number of Questions User as Commented On</div>
-                        <div class="stats-number">10</div>
-                    </div>
-                </div>
+                <div class="stats-number">10</div>
+              </div>
             </div>
-        </main>
+          </div>
+          <div class="profile-top-questions">
+            <div class="list-box article">
+              <div class="list-head"><h2>Top Questions</h2></div>
+              <div
+                onclick="location.href='question.html';"
+                class="list-content"
+              >
+                <!-- 1 -->
+                <div class="list-text">
+                  <div>
+                    <p>Will there be buses to the Location?</p>
+                    <div class="question-footer">
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon">
+                            <img
+                              src="static/up-arrow-active.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/up-arrow-inactive.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__upvote-count">10</div>
+                      </div>
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/down-arrow-active.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                          <span>
+                            <img
+                              src="static/down-arrow_inactive.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__downvote-count inactive">
+                          20
+                        </div>
+                      </div>
 
-        <footer>
-            <div class="copyright">
-                © 2018-2019 Copyright
+                      <div class="footer-actions"><a href="#">Comments</a></div>
+
+                      <!-- question footer -->
+                    </div>
+                    <div class="meetup-title">Beach Volley Ball Sport Club</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2 -->
+              <div
+                onclick="location.href='question.html';"
+                class="list-content"
+              >
+                <!-- 1 -->
+                <div class="list-text">
+                  <div>
+                    <p>What topics are we to read up on before the meetup?</p>
+                    <div class="question-footer">
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon">
+                            <img
+                              src="static/up-arrow-active.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/up-arrow-inactive.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__upvote-count">10</div>
+                      </div>
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/down-arrow-active.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                          <span>
+                            <img
+                              src="static/down-arrow_inactive.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__downvote-count inactive">
+                          20
+                        </div>
+                      </div>
+
+                      <div class="footer-actions"><a href="#">Comments</a></div>
+
+                      <!-- question footer -->
+                    </div>
+                    <div class="meetup-title">Lagos German Language Meetup</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3 -->
+              <div
+                onclick="location.href='question.html';"
+                class="list-content"
+              >
+                <div class="list-text">
+                  <div>
+                    <p>Will there be food at the event?</p>
+                    <div class="question-footer">
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon">
+                            <img
+                              src="static/up-arrow-active.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/up-arrow-inactive.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__upvote-count">10</div>
+                      </div>
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/down-arrow-active.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                          <span>
+                            <img
+                              src="static/down-arrow_inactive.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__downvote-count inactive">
+                          20
+                        </div>
+                      </div>
+
+                      <div class="footer-actions"><a href="#">Comments</a></div>
+
+                      <!-- question footer -->
+                    </div>
+                    <div class="meetup-title">Internet of Things Meetup</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4 -->
+              <div
+                onclick="location.href='question.html';"
+                class="list-content"
+              >
+                <div class="list-text">
+                  <div>
+                    <p>How can I get the hoodies for this meetup?</p>
+                    <div class="question-footer">
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon">
+                            <img
+                              src="static/up-arrow-active.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/up-arrow-inactive.svg"
+                              alt="upvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__upvote-count">10</div>
+                      </div>
+                      <div class="footer-actions">
+                        <button class="vote-icon">
+                          <span class="align-vote-icon invisible">
+                            <img
+                              src="static/down-arrow-active.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                          <span>
+                            <img
+                              src="static/down-arrow_inactive.svg"
+                              alt="downvote"
+                            />
+                          </span>
+                        </button>
+                        <div class="footer-actions__downvote-count inactive">
+                          20
+                        </div>
+                      </div>
+
+                      <div class="footer-actions"><a href="#">Comments</a></div>
+
+                      <!-- question footer -->
+                    </div>
+                    <div class="meetup-title">Women in Tech Meetup</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
-        </footer>
+
+            <!-- top questions section end -->
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="copyright">© 2018-2019 Copyright</div>
+        <a href="">Terms and Conditions</a> | <a href="">Policy</a> |
+        <a href="">Contacts</a>
+      </footer>
     </div>
     <script>
-        const modal = document.querySelector('.modal');
-        const password = document.getElementById('change-password-btn');
-        const response = document.querySelectorAll('.response');
-        const span = document.getElementsByClassName('close')[0];
+      const modal = document.querySelector(".modal");
+      const password = document.getElementById("change-password-btn");
+      const response = document.querySelectorAll(".response");
+      const span = document.getElementsByClassName("close")[0];
 
-        password.addEventListener('click', function () {
-                modal.style.display = "block";
-            });
+      password.addEventListener("click", function() {
+        modal.style.display = "block";
+      });
 
-        span.onclick = function (e) {
-            //e.preventDefault();
-            modal.style.display = "none";
-        }
+      span.onclick = function(e) {
+        //e.preventDefault();
+        modal.style.display = "none";
+      };
 
-        response.forEach((a) => {
-            a.addEventListener('click', function (e) {
-                e.preventDefault();
-                modal.style.display = "none";
-            });
+      response.forEach(a => {
+        a.addEventListener("click", function(e) {
+          e.preventDefault();
+          modal.style.display = "none";
         });
+      });
 
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
         }
+      };
     </script>
-</body>
-
+  </body>
 </html>

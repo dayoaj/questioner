@@ -1,143 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- for favicon -->
-    <link rel="shortcut icon" href="./static/favicon.png">
-    <link rel="stylesheet" href="meetup-details.css">
-    <link rel="stylesheet" href="comment.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./static/favicon.png" />
+    <link rel="stylesheet" href="meetup-details.css" />
+    <link rel="stylesheet" href="comment.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Question</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-            <header>
-                    <div class="container">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="./static/logo.png" alt="Questioner Logo">
-                            </a>
-                        </div>
-                        <nav>
-                            <ul>
-                                <li><a class="header-link" href="index.html">Home</a></li>
-                                <li><a class="header-link" href="#">About</a></li>
-                                <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                                <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
-                                <li class="profile-list-anchor">
-                                    <div class="dropdown">
-                                        <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
-                                        <div class="dropdown-content">
-                                            <a href="profile.html">Profile</a>
-                                            <a href="dashboard.html">Dashboard</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
-        <main>
-            <div class="meetup-details-body">
+      <header>
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./static/logo.png" alt="Questioner Logo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li><a class="header-link" href="index.html">Home</a></li>
 
-
-                <div class="meetup-article-title-header">
-                    <h2 class="meetup-article-title">
-                        Internet of things Meetup
-                    </h2>
-                    <div class="meetup-article-subtitle">
-                        <div class="meetup-article-details">
-                            Published Dec 18, 2018
-                        </div>
-                    </div>
+              <li><a class="header-link" href="meetup.html">Meetup</a></li>
+              <li class="invisible">
+                <a class="btn btn-outline-primary " href="signin.html"
+                  >Sign in</a
+                >
+              </li>
+              <li class="profile-list-anchor">
+                <div class="dropdown">
+                  <a class="header-avatar dropbtn" href="profile.html"
+                    ><img src="static/profile.jpg" alt="profile-avatar"
+                  /></a>
+                  <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="dashboard.html">Dashboard</a>
+                  </div>
                 </div>
-                
-                <div class="meetup-text-content">
-                    <div class="meetup-article-tags">
-                        Tags:
-                        <a href="#" class="tag">technology</a>
-                        <a href="#" class="tag">hardware</a>
-                    </div>
-                </div>
-                <div class="questions">
-                    
-                    <div class="other-questions">
-
-                        <!-- 1 -->
-                        <div class="question">
-                            <div class="avatar-q">
-                                <img src="static/user.png" alt="Meetup picture" class="img-style">
-                            </div>
-                            <div class="question-container">
-                                <div class="question-user-details">
-                                    <span class="name">Peter John</span>
-                                    <span class="date">20th December, 2018</span>
-                                </div>
-                                <div class="question-content">Will there be food at the meet up?</div>
-                                <div class="question-footer">
-                                    <div class="footer-actions">
-                                        <button class="vote-icon">
-
-                                            <span class="align-vote-icon">
-                                                <img src="static/up-arrow-active.svg" alt="upvote">
-                                            </span>
-                                            <span class="align-vote-icon invisible">
-                                                <img src="static/up-arrow-inactive.svg" alt="upvote">
-                                            </span>
-                                        </button>
-                                        <div class="footer-actions__upvote-count">10</div>
-
-                                    </div>
-                                    <div class="footer-actions">
-                                        <button class="vote-icon">
-                                            <span class="align-vote-icon invisible">
-                                                <img src="static/down-arrow-active.svg" alt="downvote">
-                                            </span>
-                                            <span>
-                                                <img src="static/down-arrow_inactive.svg" alt="downvote">
-                                            </span>
-                                        </button>
-                                        <div class="footer-actions__downvote-count inactive">20</div>
-
-                                    </div>
-                                    <!-- question footer -->
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                    </div>
-
-                    <div class="send-question add-comment-wrap">
-                            <div class="avatar">
-                                <img src="static/user.png" alt="user">
-                            </div>
-                            <div class="reply">
-                                <div class="container-question-textarea">
-                                    <textarea name="comment" id="comment" cols="45" rows="3" placeholder="Add a comment..."></textarea>
-                                </div>
-                                <div class="container-question-button">
-                                    <button class="btn btn-secondary--small">Add Comment</button>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="meetup-details-body">
+          <div class="meetup-article-title-header">
+            <h2 class="meetup-article-title">Internet of things Meetup</h2>
+            <div class="meetup-article-subtitle">
+              <div class="meetup-article-details">Published Dec 18, 2018</div>
             </div>
-        </main>
+          </div>
 
-        <footer>
-            <div class="copyright">
-                © 2018-2019 Copyright
+          <div class="meetup-text-content">
+            <div class="meetup-article-tags">
+              Tags: <a href="#" class="tag">technology</a>
+              <a href="#" class="tag">hardware</a>
             </div>
-            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
-        </footer>
+          </div>
+          <div class="questions">
+            <div class="other-questions">
+              <!-- 1 -->
+              <div class="question">
+                <div class="avatar-q">
+                  <img
+                    src="static/user.png"
+                    alt="Meetup picture"
+                    class="img-style"
+                  />
+                </div>
+                <div class="question-container">
+                  <div class="question-user-details">
+                    <span class="name">Peter John</span>
+                    <span class="date">20th December, 2018</span>
+                  </div>
+                  <div class="question-content">
+                    Will there be food at the meet up?
+                  </div>
+                  <div class="question-footer">
+                    <div class="footer-actions">
+                      <button class="vote-icon">
+                        <span class="align-vote-icon">
+                          <img src="static/up-arrow-active.svg" alt="upvote" />
+                        </span>
+                        <span class="align-vote-icon invisible">
+                          <img
+                            src="static/up-arrow-inactive.svg"
+                            alt="upvote"
+                          />
+                        </span>
+                      </button>
+                      <div class="footer-actions__upvote-count">10</div>
+                    </div>
+                    <div class="footer-actions">
+                      <button class="vote-icon">
+                        <span class="align-vote-icon invisible">
+                          <img
+                            src="static/down-arrow-active.svg"
+                            alt="downvote"
+                          />
+                        </span>
+                        <span>
+                          <img
+                            src="static/down-arrow_inactive.svg"
+                            alt="downvote"
+                          />
+                        </span>
+                      </button>
+                      <div class="footer-actions__downvote-count inactive">
+                        20
+                      </div>
+                    </div>
+                    <!-- question footer -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="send-question add-comment-wrap">
+              <div class="avatar"><img src="static/user.png" alt="user" /></div>
+              <div class="reply">
+                <div class="container-question-textarea">
+                  <textarea
+                    name="comment"
+                    id="comment"
+                    cols="45"
+                    rows="3"
+                    placeholder="Add a comment..."
+                  ></textarea>
+                </div>
+                <div class="container-question-button">
+                  <button class="btn btn-secondary--small">Add Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="copyright">© 2018-2019 Copyright</div>
+        <a href="">Terms and Conditions</a> | <a href="">Policy</a> |
+        <a href="">Contacts</a>
+      </footer>
     </div>
-</body>
-
+  </body>
 </html>

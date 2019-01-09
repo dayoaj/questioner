@@ -1,100 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- for favicon -->
-    <link rel="shortcut icon" href="./static/favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="forms.css">
+    <link rel="shortcut icon" href="./static/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="forms.css" />
     <title>Edit Profile</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="./static/logo.png" alt="Questioner Logo">
-                    </a>
+      <header>
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./static/logo.png" alt="Questioner Logo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li><a class="header-link" href="index.html">Home</a></li>
+              <li><a class="header-link" href="meetup.html">Meetup</a></li>
+              <li class="invisible">
+                <a class="btn btn-outline-primary " href="signin.html"
+                  >Sign in</a
+                >
+              </li>
+              <li class="profile-list-anchor">
+                <div class="dropdown">
+                  <a class="header-avatar dropbtn" href="profile.html"
+                    ><img src="static/profile.jpg" alt="profile-avatar"
+                  /></a>
+                  <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="dashboard.html">Dashboard</a>
+                  </div>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a class="header-link" href="index.html">Home</a></li>
-                        <li><a class="header-link" href="#">About</a></li>
-                        <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
-                        <li class="profile-list-anchor">
-                            <div class="dropdown">
-                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
-                                <div class="dropdown-content">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="dashboard.html">Dashboard</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <div class="card signup-wrap">
-                <div class="top">
-                    <h1>Edit profile</h1>
-                </div>
-                <div class="input-set">
-                    <label for="first-name">First Name</label>
-                    <input type="text" name="first-name" id="first-name" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="Rose" autofocus="">
-                </div>
-                <div class="input-set">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" name="last-name" id="last-name" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="Adamu" autofocus="" >
-                </div>
-                <div class="input-set">
-                    <label for="other-name">Other Name</label>
-                    <input type="text" name="other-name" id="other-name" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="Nkechi" autofocus="">
-                </div>
-                <div class="input-set">
-                    <label for="name">Username</label>
-                    <input type="text" name="username" id="username" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="Rose01" autofocus="">
-                </div>
-                <div class="input-set">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="rose.adamu@outlook.com">
-                </div>
-                <div class="input-set">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" name="phone" id="phone" tabindex="0" autocorrect="off" spellcheck="false"
-                        autocapitalize="off" value="2348034689946 ">
-                </div>
-                <div class="input-set">
-                    <label for="avatar">Change profile picture</label>
-                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                </div>
-                <div class="input-set">
-                    <input id="signup-btn" tabindex="0" type="button" class="btn btn-secondary" value="Create New Account">
-                </div>
-            </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="card signup-wrap">
+          <div class="top"><h1>Edit profile</h1></div>
+          <div class="input-set">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="Rose"
+              autofocus=""
+            />
+          </div>
+          <div class="input-set">
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="Adamu"
+              autofocus=""
+            />
+          </div>
+          <div class="input-set">
+            <label for="other-name">Other Name</label>
+            <input
+              type="text"
+              name="other-name"
+              id="other-name"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="Nkechi"
+              autofocus=""
+            />
+          </div>
+          <div class="input-set">
+            <label for="name">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="Rose01"
+              autofocus=""
+            />
+          </div>
+          <div class="input-set">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="rose.adamu@outlook.com"
+            />
+          </div>
+          <div class="input-set">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              tabindex="0"
+              autocorrect="off"
+              spellcheck="false"
+              autocapitalize="off"
+              value="2348034689946 "
+            />
+          </div>
 
-        </main>
+          <div class="input-set">
+            <input
+              id="signup-btn"
+              tabindex="0"
+              type="button"
+              class="btn btn-secondary"
+              value="Edit Details"
+            />
+          </div>
+        </div>
+      </main>
 
-        <footer>
-            <div class="copyright">
-                © 2018-2019 Copyright
-            </div>
-            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
-        </footer>
+      <footer>
+        <div class="content">
+          <div class="copyright">© 2018-2019 Copyright</div>
+          <a href="">Terms and Conditions</a> | <a href="">Policy</a> |
+          <a href="">Contacts</a>
+        </div>
+      </footer>
     </div>
-</body>
-
+  </body>
 </html>

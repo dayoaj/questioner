@@ -1,18 +1,19 @@
-.profile-body{
+.profile-body {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
 }
 
 .profile-details {
   display: flex;
   justify-content: space-between;
   padding: .6rem 1.2rem;
+  flex-direction: column;
+  width: 45%
 }
 
 .profile-secondary {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding-left: 1rem;
 }
 
@@ -32,72 +33,74 @@
   margin-top: 1rem;
 }
 
-
-.profile-primary {
-  width: 46%;
-  padding: 0 1rem;
-  /*! flex: 1 0 46%; */
+.username {
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
 .profile-detail-title {
   font-size: 2rem;
-  color: #c2c2c2;
+  color: #a19e9e;
   padding-right: 2rem;
-  width: 23%;
+  width: 30%;
   display: inline-block;
   line-height: 1.8rem;
 }
 
-.profile-detail-content{
+.profile-detail-content {
   font-size: 2.3rem;
 }
 
 .profile-stats {
-  background-color: #fff;
+  background-color: #f3f3f3;
   margin: .6rem auto;
   padding: 1.8rem 1.3rem;
-  width: 75%;
   border-radius: 10px;
   border: .4px solid #efefef;
+  width: 100%;
 }
-.profile-stats .stats{
+
+.profile-stats .stats {
   display: flex;
   border-bottom: 1px solid #efefef;
   align-items: center;
 }
 
-.stats:last-child{
+.stats:last-child {
   border-bottom: none;
 }
-.stats-text{
-  width:30%;
+
+.stats-text {
+  width: 30%;
 }
-.stats-number{
+
+.stats-number {
   font-size: 3rem;
   font-style: italic;
   padding-left: 5rem;
 }
 
-.change-password{
+.change-password {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
 }
 
 .list-content {
-    border-bottom: 1px solid #e6ecf0;
-    cursor: pointer;
-    max-height: 10rem;
-    display: flex;
-    padding: 1rem 1rem; 
-    background-color: #fbfbfb;
+  border-bottom: 1px solid #e6ecf0;
+  cursor: pointer;
+  max-height: 10rem;
+  display: flex;
+  padding: 1rem 1rem;
+  background-color: #f3f3f3;
 }
 
 .list-content:hover {
   background-color: rgb(255, 245, 203);
-} 
+}
 
-.list-content .meetup-title{
+.list-content .meetup-title {
   font-size: 1.3rem;
   color: #999;
   font-style: italic;
@@ -109,7 +112,7 @@
   font-size: 1.6rem;
 }
 
-.question-footer{
+.question-footer {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -117,11 +120,12 @@
   height: 18px;
 }
 
-.footer-actions{
+.footer-actions {
   display: flex;
   padding-left: 1rem;
 }
-.footer-actions a{
+
+.footer-actions a {
   color: #bbb
 }
 
@@ -133,9 +137,10 @@
   color: #91DC5A;
 }
 
-.footer-actions__downvote-count{
+.footer-actions__downvote-count {
   color: #E0245E;
 }
+
 .align-vote-icon {
   position: relative;
 }
@@ -155,16 +160,20 @@
   color: #91DC5A;
 }
 
-.footer-actions__downvote-count{
+.footer-actions__downvote-count {
   color: #E0245E;
 }
 
-.inactive{
-  color:#c1c1c1;
+.inactive {
+  color: #c1c1c1;
 }
 
 @media all and (max-width: 1000px) {
-  .profile-details{
+  .profile-body {
     flex-direction: column;
+    align-items: center;
+  }
+  .profile-details, .profile-top-questions {
+    width: 90%;
   }
 }

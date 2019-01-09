@@ -6,15 +6,19 @@ table {
 th, td {
   text-align: left;
   padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:hover {
+  background-color: #f3f3f3;
+}
 
 th {
   background-color: #7112e9;
   color: white;
 }
 
-.dashboard-wrap{
-  margin: 2rem 1.3rem;
+.dashboard-wrap {
+  margin: 3rem auto;
+  width: 80%;
 }

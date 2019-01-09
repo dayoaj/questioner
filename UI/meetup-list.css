@@ -1,70 +1,76 @@
 .list-box {
-    border: 1px solid rgb(167, 165, 165);
-    padding: 0;
-    background: white;
-    margin: 1rem auto;
-    width: 56%;
-    border: 0;
+  border: 1px solid #f7f7f7;
+  padding: 0;
+  background: #f3f3f3;
+  margin: 1rem auto;
+  width: 60%;
 }
 
 .list-head {
-    border-bottom: 1px solid rgb(73, 102, 102);
+  border-bottom: 1px solid rgb(73, 102, 102);
+}
+
+.meetup-article-details {
+  font-size: small;
+  font-weight: 100;
+  color: rgb(102, 101, 101);
 }
 
 .list-content {
-    border-bottom: 1px solid #e6ecf0;
-    cursor: pointer;
-    min-height: 14rem;
-    display: flex;
-    padding: 1rem 1rem; 
-    /* flex-flow: row wrap; */
-    /* overflow: auto; */
-}
-.list-text {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.list-image {
-    display: inline-block;
-    padding: .25em;
+  border-bottom: 1px solid #e6ecf0;
+  cursor: pointer;
+  min-height: 14rem;
+  display: flex;
+  padding: 1rem 1rem;
+  /* flex-flow: row wrap; */
+  /* overflow: auto; */
 }
 
-.list-image > img {
-    width: 14.5rem;
-    height: 14.5rem;
+.list-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.list-text  h3 {
-    font-size: 1.4em;
-    color: rgb(14,14,14);
-    text-align: left;
-    padding: .2rem .05rem;
-    display: inline-block;
+
+.list-image {
+  display: inline-block;
+  padding: .25em;
+}
+
+.list-image>img {
+  width: 14.5rem;
+  height: 14.5rem;
+}
+
+.list-text h3 {
+  font-size: 1.4em;
+  color: rgb(14, 14, 14);
+  text-align: left;
+  padding: .2rem .05rem;
+  display: inline-block;
 }
 
 .list-text p {
-    padding: .2rem;
-    margin: .1rem;
-    line-height: 1.5rem;
+  padding: .2rem;
+  margin: .1rem;
+  line-height: 1.5rem;
 }
 
 .list-content:hover {
-    background-color: rgb(255, 245, 203);
-    
+  background-color: rgb(255, 245, 203);
 }
+
 .view-more {
-    display: flex;
-    align-self: flex-end;
+  display: flex;
+  align-self: flex-end;
 }
 
 @media all and (max-width: 800px) {
-    .list-box {
-        width: 90%;
-    }
-
-    .list-image {
-        display: none;
-    }
-
+  .list-box {
+    width: 90%;
+  }
+  .list-image {
+    display: none;
+  }
 }
