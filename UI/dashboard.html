@@ -1,182 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- for favicon -->
-    <link rel="shortcut icon" href="./static/favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="shortcut icon" href="./static/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="modal.css" />
     <title>Dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="./static/logo.png" alt="Questioner Logo">
-                    </a>
+      <header>
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="./static/logo.png" alt="Questioner Logo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li><a class="header-link" href="index.html">Home</a></li>
+              <li><a class="header-link" href="#">About</a></li>
+              <li><a class="header-link" href="meetup.html">Meetup</a></li>
+              <li class="invisible">
+                <a class="btn btn-outline-primary " href="signin.html"
+                  >Sign in</a
+                >
+              </li>
+              <li class="profile-list-anchor">
+                <div class="dropdown">
+                  <a class="header-avatar dropbtn" href="profile.html"
+                    ><img src="static/profile.jpg" alt="profile-avatar"
+                  /></a>
+                  <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="dashboard.html">Dashboard</a>
+                  </div>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a class="header-link" href="index.html">Home</a></li>
-                        <li><a class="header-link" href="#">About</a></li>
-                        <li><a class="header-link" href="meetup.html">Meetup</a></li>
-                        <li class="invisible"><a class="btn btn-outline-primary " href="signin.html">Sign in</a></li>
-                        <li class="profile-list-anchor">
-                            <div class="dropdown">
-                                <a class="header-avatar dropbtn" href="profile.html"><img src="static/profile.jpg" alt="profile-avatar"></a>
-                                <div class="dropdown-content">
-                                    <a href="profile.html">Profile</a>
-                                    <a href="dashboard.html">Dashboard</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="dashboard-wrap">
+          <section class="add-new-meetup">
+            <button
+              class="btn btn-secondary"
+              onclick="location.href='addmeetup.html';"
+            >
+              Add New Meetup
+            </button>
+          </section>
+          <section class="meetup-table">
+            <h2>Meetups</h2>
+
+            <table>
+              <tr>
+                <th>Topic</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              <tr>
+                <td>
+                  <a href="meetupdetails.html">Beach Volley Ball Sport Club</a>
+                </td>
+                <td>
+                  <a href="editmeetup.html">
+                    <img src="static/baseline-edit-24px.svg" alt="" />
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="delete-btn">
+                    <img src="static/baseline-delete-24px.svg" alt="" />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="meetupdetails.html">Lagos German Language Meetup</a>
+                </td>
+                <td>
+                  <a href="editmeetup.html">
+                    <img src="static/baseline-edit-24px.svg" alt="" />
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="delete-btn">
+                    <img src="static/baseline-delete-24px.svg" alt="" />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="meetupdetails.html">Internet of Things Meetup</a>
+                </td>
+                <td>
+                  <a href="editmeetup.html">
+                    <img src="static/baseline-edit-24px.svg" alt="" />
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="delete-btn">
+                    <img src="static/baseline-delete-24px.svg" alt="" />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><a href="meetupdetails.html">Women in Tech Meetup</a></td>
+                <td>
+                  <a href="editmeetup.html">
+                    <img src="static/baseline-edit-24px.svg" alt="" />
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="delete-btn">
+                    <img src="static/baseline-delete-24px.svg" alt="" />
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="meetupdetails.html">Fitness and Exercise Meetup</a>
+                </td>
+                <td>
+                  <a href="editmeetup.html">
+                    <img src="static/baseline-edit-24px.svg" alt="" />
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="delete-btn">
+                    <img src="static/baseline-delete-24px.svg" alt="" />
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <div class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p class="modal-body">Are you sure to delete?</p>
+                <span class="modal-footer">
+                  <button class="btn btn-outline-primary response">No</button>
+                  <button class="btn btn-outline-primary response">Yes</button>
+                </span>
+              </div>
             </div>
-        </header>
-        <main>
-            <div class="dashboard-wrap">
-                <section class="add-new-meetup">
-                    <button class="btn btn-secondary" onclick="location.href='addmeetup.html';">Add New Meetup</button>
-                </section>
-                <section class="meetup-table">
-                    <h2>Meetups</h2>
+          </section>
+        </div>
+      </main>
 
-                    <table>
-                        <tr>
-                            <th>Topic</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        <tr>
-                            <td>Beach Volley Ball Sport Club</td>
-                            <td>
-                                <a href="editmeetup.html">
-                                    <img src="static/baseline-edit-24px.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="delete-btn">
-                                    <img src="static/baseline-delete-24px.svg" alt="">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Lagos German Language Meetup</td>
-                            <td>
-                                <a href="editmeetup.html">
-                                    <img src="static/baseline-edit-24px.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="delete-btn">
-                                    <img src="static/baseline-delete-24px.svg" alt="">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Internet of Things Meetup </td>
-                            <td>
-                                <a href="editmeetup.html">
-                                    <img src="static/baseline-edit-24px.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="delete-btn">
-                                    <img src="static/baseline-delete-24px.svg" alt="">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Women in Tech Meetup</td>
-                            <td>
-                                <a href="editmeetup.html">
-                                    <img src="static/baseline-edit-24px.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="delete-btn">
-                                    <img src="static/baseline-delete-24px.svg" alt="">
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Fitness and Exercise Meetup</td>
-                            <td>
-                                <a href="editmeetup.html">
-
-                                    <img src="static/baseline-edit-24px.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                    <a href="#" class="delete-btn">
-
-                                        <img src="static/baseline-delete-24px.svg" alt="">
-                                    </a>
-                            </td>
-                        </tr>
-                    </table>
-                    <div class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p class="modal-body">Are you sure to delete?</p>
-                            <span class="modal-footer">
-                                <button class="btn btn-outline-primary response">No</button>
-                                <button class="btn btn-outline-primary response">Yes</button>
-                            </span>
-                        </div>
-
-                    </div>
-                </section>
-            </div>
-
-        </main>
-
-        <footer>
-            <div class="copyright">
-                © 2018-2019 Copyright
-            </div>
-            <a href="">Terms and Conditions</a> | <a href="">Policy</a> | <a href="">Contacts</a>
-        </footer>
+      <footer>
+        <div class="copyright">© 2018-2019 Copyright</div>
+        <a href="">Terms and Conditions</a> | <a href="">Policy</a> |
+        <a href="">Contacts</a>
+      </footer>
     </div>
     <script>
-        const modal = document.querySelector('.modal');
-        const btn = document.querySelectorAll('.delete-btn');
-        const response = document.querySelectorAll('.response');
-        const span = document.getElementsByClassName('close')[0];
+      const modal = document.querySelector(".modal");
+      const btn = document.querySelectorAll(".delete-btn");
+      const response = document.querySelectorAll(".response");
+      const span = document.getElementsByClassName("close")[0];
 
-        btn.forEach((a) => {
-            a.addEventListener('click', function() {
-                modal.style.display = "block";
-            });
+      btn.forEach(a => {
+        a.addEventListener("click", function() {
+          modal.style.display = "block";
         });
+      });
 
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
+      span.onclick = function() {
+        modal.style.display = "none";
+      };
 
-        response.forEach((a) => {
-            a.addEventListener('click', function() {
-            modal.style.display = "none";
-            });
+      response.forEach(a => {
+        a.addEventListener("click", function() {
+          modal.style.display = "none";
         });
+      });
 
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
         }
+      };
     </script>
-</body>
-
+  </body>
 </html>

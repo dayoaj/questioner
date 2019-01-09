@@ -1,9 +1,11 @@
 .meetup-details-body {
     margin: 2em auto;
     display: flex;
-    border: none;
-    width: 55%;
+    border: 1px solid #f3f3f3;
+    width: 58%;
     flex-direction: column;
+    padding: 4rem;
+    background-color: #f6f6f6;
 }
 
 h2.meetup-article-title {
@@ -78,7 +80,6 @@ h2.meetup-article-title {
 
 .questions .send-question{
     display: flex;
-    max-width: 60%;
 }
 
 .send-question .avatar {
@@ -106,7 +107,7 @@ h2.meetup-article-title {
 }
 
 .reply textarea{
-    max-width: 100%;
+    width: 100%;
     overflow: hidden;
     overflow-wrap: break-word;
     height: 71px;
@@ -126,7 +127,7 @@ h2.meetup-article-title {
     display: flex;
     padding: 1.1rem .5rem;
     border-top: 1px solid #efefef;
-    background: #fafafa;
+    background: #fff;
 }
 
 .other-questions .avatar-q {

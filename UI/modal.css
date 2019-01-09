@@ -30,6 +30,9 @@
   font-weight: bold;
 }
 
+.modal-body input[type="text"] {
+  margin-bottom: .5rem;
+}
 .response {
   background-color: red;
 }
