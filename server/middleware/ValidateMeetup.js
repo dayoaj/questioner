@@ -21,7 +21,8 @@ class ValidateMeetup {
       case 'createRSVP':
         return [
           body('topic', `topic doesn't exists`).exists(),
-          body('status', `happeningOn doesn't exists`).isIn(['yes', 'no', 'maybe'])
+          body('status', `status does not exist`).exists(),
+          body('status', `status is not well formated`).isIn(['yes', 'no', 'maybe'])
         ];
       case 'getOne':
         return [param('id', `id is not uuid type`).isUUID()];

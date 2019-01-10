@@ -1,4 +1,5 @@
 import Meetup from '../models/Meetup';
+import ValidationResultHandler from '../middleware/ValidationResultHandler';
 
 /** Class representing Meetup controller Logic */
 class MeetupController {
@@ -11,12 +12,8 @@ class MeetupController {
    * @returns {object} res
    */
   static create(req, res) {
-    if (!req.body.location || !req.body.topic || !req.body.happeningOn) {
-      return res.status(400).send({
-        status: 400,
-        error: 'Some required parameters to create meetup are missing'
-      });
-    }
+    ValidationResultHandler(req, res);
+
     const meetup = Meetup.create(req.body);
 
     return res.status(201).send({
@@ -34,26 +31,12 @@ class MeetupController {
    * @returns {object} res
    */
   static createRSVP(req, res) {
-    if (!req.body.topic || !req.body.status) {
-      return res.status(400).send({
-        status: 400,
-        error: 'Some required parameters to rsvp are missing'
-      });
-    }
+    ValidationResultHandler(req, res);
+
     if (!Meetup.findOne(req.params.id)) {
       return res.status(404).send({
         status: 404,
         error: 'Meetup record does not exist'
-      });
-    }
-    const A = req.body.status !== 'yes';
-    const B = req.body.status !== 'no';
-    const C = req.body.status !== 'maybe';
-
-    if ((A && !B && !C) || (B && !A && !C) || (C && !A && !B)) {
-      return res.status(400).send({
-        status: 400,
-        error: `status should be either, yes, no or maybe but got ${req.body.status}`
       });
     }
     let rsvp = {};
@@ -81,6 +64,7 @@ class MeetupController {
    * @returns {object} return response object with appended data
    */
   static getOne(req, res) {
+    ValidationResultHandler(req, res);
     const meetup = Meetup.findOne(req.params.id);
     if (!meetup) {
       return res.status(404).send({

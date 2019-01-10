@@ -11,7 +11,7 @@ describe('Question', () => {
   };
 
   describe('GET /questions/', () => {
-    it('it should GET all meetups', done => {
+    it('it should GET all questions', done => {
       chai
         .request(server)
         .get('/questions')
@@ -28,7 +28,7 @@ describe('Question', () => {
   });
 
   describe('POST /questions', () => {
-    it('it should create a meetup record', done => {
+    it('it should create a question record', done => {
       req = {
         body: {
           createdBy: 665556,

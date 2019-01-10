@@ -1,22 +1,14 @@
 import moment from 'moment';
 import uuid from 'uuid';
-import fs from 'fs';
-import RSVPException from './ErrorHandle';
+import ErrorHandle from './ErrorHandle';
+import obj from './db';
 
 class Meetup {
-  /**
-   * class constructor
-   * @param  {object} data
-   */
-  constructor() {
-    this.obj = {};
-  }
-
   /**
    *@param {req.body} data
    * @returns {object} meetup object
    */
-  create(data) {
+  static create(data) {
     const newMeetup = {
       id: uuid.v4(),
       createdOn: moment(),
@@ -28,10 +20,7 @@ class Meetup {
       tags: data.tags || [],
       convener: data.convener || ''
     };
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    this.obj.meetups.push(newMeetup);
-    fs.writeFileSync('server/models/db.json', JSON.stringify(this.obj), 'utf8');
+    obj.setMeetups(newMeetup);
     return {
       topic: newMeetup.topic,
       location: newMeetup.location,
@@ -43,44 +32,39 @@ class Meetup {
   /**
    *
    * @param {uuid} id
-   * @returns {object} question object
+   * @returns {object}  rsvp object
    */
-  findOneRSVP(id) {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.rsvps.find(rsvp => rsvp.meetup === id);
+  static findOneRSVP(id) {
+    const rsvps = obj.getRsvps();
+    return rsvps.find(rsvp => rsvp.meetup === id);
   }
 
   /**
    *
    * @param {uuid} id
-   * @returns {object} question object
+   * @returns {object} meetup object
    */
-  findAllRSVP() {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.rsvps;
+  static findAllRSVP() {
+    const rsvps = obj.getRsvps();
+    return rsvps;
   }
 
   /**
    *@param {req.body} data
    * @returns {object} meetup object
    */
-  createRSVP(data, id) {
+  static createRSVP(data, id) {
     const newRSVP = {
       id: uuid.v4(),
       meetup: id || null,
       topic: data.topic || '',
       response: data.status || ''
     };
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
     if (this.findOneRSVP(id) && this.findOneRSVP(id).response === newRSVP.response)
-      throw new RSVPException('Event RSVP is already stored');
+      throw new ErrorHandle('Event RSVP is already stored');
     if (this.findOne(id) && this.findOne(id).happeningOn < moment())
-      throw new RSVPException('Cannot Reserve, Event is past');
-    this.obj.rsvps.push(newRSVP);
-    fs.writeFileSync('server/models/db.json', JSON.stringify(this.obj), 'utf8');
+      throw new ErrorHandle('Cannot Reserve, Event is past');
+    obj.setRsvps(newRSVP);
     return {
       meetup: newRSVP.meetup,
       topic: newRSVP.topic,
@@ -91,12 +75,11 @@ class Meetup {
   /**
    *
    * @param {uuid} id
-   * @returns {object} question object
+   * @returns {object} meetup object
    */
-  findOne(id) {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.meetups.find(meetup => meetup.id === id);
+  static findOne(id) {
+    const meetups = obj.getMeetups();
+    return meetups.find(meetup => meetup.id === id);
   }
 
   /**
@@ -104,17 +87,15 @@ class Meetup {
    *
    * @returns {object} meetups object
    */
-  findAll() {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.meetups;
+  static findAll() {
+    const meetups = obj.getMeetups();
+    return meetups;
   }
 
-  findUpcoming() {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.meetups.filter(n => n.happeningOn > moment());
+  static findUpcoming() {
+    const meetups = obj.getMeetups();
+    return meetups.filter(n => n.happeningOn > moment());
   }
 }
 
-export default new Meetup();
+export default Meetup;

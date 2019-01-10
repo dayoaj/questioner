@@ -1,21 +1,13 @@
 import moment from 'moment';
 import uuid from 'uuid';
-import fs from 'fs';
+import obj from './db';
 
 class Question {
-  /**
-   * class constructor
-   * @param  {object} data
-   */
-  constructor() {
-    this.obj = {};
-  }
-
   /**
    *
    * @returns {object} question object
    */
-  create(data) {
+  static create(data) {
     const newQuestion = {
       id: uuid.v4(),
       createdOn: moment(),
@@ -25,10 +17,7 @@ class Question {
       body: data.body || '',
       votes: data.votes || 0
     };
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    this.obj.questions.push(newQuestion);
-    fs.writeFileSync('server/models/db.json', JSON.stringify(this.obj), 'utf8');
+    obj.setQuestions(newQuestion);
     return {
       id: newQuestion.id,
       user: newQuestion.createdBy,
@@ -38,16 +27,15 @@ class Question {
     };
   }
 
-  vote(id, mode) {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    const question = this.findOne(id);
-    const index = this.obj.questions.indexOf(question);
+  static vote(id, mode) {
+    const questions = obj.getQuestions();
+    const question = questions.find(n => n.id === id);
+    const index = questions.indexOf(question);
     const { votes } = question;
-    if (mode === 'upvote') this.obj.questions[index].votes = votes + 1;
-    if (mode === 'downvote') this.obj.questions[index].votes = votes - 1;
-    fs.writeFileSync('server/models/db.json', JSON.stringify(this.obj), 'utf8');
-    return this.obj.questions[index];
+    if (mode === 'upvote') questions[index].votes = votes + 1;
+    if (mode === 'downvote') questions[index].votes = votes - 1;
+    obj.setQuestions(questions);
+    return questions[index];
   }
 
   /**
@@ -55,10 +43,9 @@ class Question {
    * @param {uuid} id
    * @returns {object} question object
    */
-  findOne(id) {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.questions.find(question => question.id === id);
+  static findOne(id) {
+    const questions = obj.getQuestions();
+    return questions.find(question => question.id === id);
   }
 
   /**
@@ -66,11 +53,9 @@ class Question {
    *
    * @returns {object} questions object
    */
-  findAll() {
-    const obj = JSON.parse(fs.readFileSync('server/models/db.json', 'utf8'));
-    this.obj = obj;
-    return this.obj.questions;
+  static findAll() {
+    return obj.getQuestions();
   }
 }
 
-export default new Question();
+export default Question;
