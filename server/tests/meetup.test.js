@@ -1,20 +1,20 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import server from '../server';
 
-const server = 'localhost:8080/api/v1';
 const { expect } = chai;
 chai.use(chaiHttp);
 
-describe('Question', () => {
+describe('Meetup', () => {
   let req = {
     body: {}
   };
 
-  describe('GET /questions/', () => {
+  describe('GET /meetups', () => {
     it('it should GET all meetups', done => {
       chai
         .request(server)
-        .get('/questions')
+        .get('/api/v1/meetups')
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
@@ -27,19 +27,21 @@ describe('Question', () => {
     });
   });
 
-  describe('POST /questions', () => {
+  describe('POST /meetups', () => {
     it('it should create a meetup record', done => {
       req = {
         body: {
-          createdBy: 665556,
-          meetup: 8382929,
-          title: 'Python Web Developers Meetup',
+          location: 'CCHub, Yaba, Lagos.',
+          topic: 'Python Web Developers Meetup',
+          happeningOn: '2018-12-23T12:00:00.511Z',
+          tags: ['Programming', 'Python', 'Web'],
+          convener: 'James Richard',
           body: 'True Pythonistas Meetup!'
         }
       };
       chai
         .request(server)
-        .post('/questions')
+        .post('/api/v1/meetups')
         .send(req.body)
         .end((err, res) => {
           expect(res).to.have.status(201);
@@ -48,11 +50,12 @@ describe('Question', () => {
           expect(res.body).to.have.property('data');
           expect(res.body.status).to.be.a('number');
           expect(res.body.data).to.be.an('array');
-          expect(res.body.data[0].title).to.be.a('string');
-          expect(res.body.data[0].body).to.be.a('string');
+          expect(res.body.data[0].topic).to.be.a('string');
+          expect(res.body.data[0].happeningOn).to.be.a('string');
+          expect(res.body.data[0].tags).to.be.an('array');
           expect(res.body.status).to.equal(201);
-          expect(res.body.data[0].title).to.equal('Python Web Developers Meetup');
-          expect(res.body.data[0].body).to.equal('True Pythonistas Meetup!');
+          expect(res.body.data[0].topic).to.equal('Python Web Developers Meetup');
+          expect(res.body.data[0].happeningOn).to.equal('2018-12-23T12:00:00.511Z');
           done();
         });
     });
