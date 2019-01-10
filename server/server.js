@@ -10,3 +10,5 @@ app.use(morgan('dev'));
 app.use('/api/v1', routes);
 
 app.listen(port);
+
+export default app;

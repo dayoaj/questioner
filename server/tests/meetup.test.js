@@ -1,7 +1,7 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import server from '../server';
 
-const server = 'localhost:8080/api/v1';
 const { expect } = chai;
 chai.use(chaiHttp);
 
@@ -14,7 +14,7 @@ describe('Meetup', () => {
     it('it should GET all meetups', done => {
       chai
         .request(server)
-        .get('/meetups')
+        .get('/api/v1/meetups')
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
@@ -41,7 +41,7 @@ describe('Meetup', () => {
       };
       chai
         .request(server)
-        .post('/meetups')
+        .post('/api/v1/meetups')
         .send(req.body)
         .end((err, res) => {
           expect(res).to.have.status(201);
