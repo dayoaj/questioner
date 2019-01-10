@@ -4,7 +4,7 @@
   "description": "Web api for questioner",
   "main": "server.js",
   "scripts": {
-    "test": "npm run dev-start && mocha --require @babel/register --recursive ./server/tests  ",
+    "test": "npm run start && mocha --require @babel/register --recursive ./server/tests  ",
     "start": "npm run build && node ./build/server.js",
     "dev-start": "nodemon --exec babel-node ./server/server.js",
     "clean": "rm -rf build && mkdir build",
