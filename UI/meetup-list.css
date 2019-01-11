@@ -31,11 +31,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-right: 1.9rem;
 }
 
 .list-image {
   display: inline-block;
   padding: .25em;
+  margin: 1rem 1.3rem;
 }
 
 .list-image>img {
@@ -52,7 +54,7 @@
 }
 
 .list-text p {
-  padding: .2rem;
+  /*! padding: .2rem; */
   margin: .1rem;
   line-height: 1.5rem;
 }

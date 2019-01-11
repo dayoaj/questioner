@@ -1,15 +1,13 @@
-/* .top {
-
+.center{
+  justify-content: center;
 }
-
-.base {
-
-} */
 
 .signup-wrap {
   margin: 2rem auto;
   padding: 1rem 2rem;
-  width: 60%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
 .signin-wrap {
@@ -17,11 +15,27 @@
   padding: 1rem 2rem;
   width: 35%;
 }
+.signup-wrap .btn-secondary{
+  margin: 1rem .2rem;
+}
+
+.profile-form-content-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .input-set {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  
+}
+.signup-wrap .input-set {
+  width: 47%;
+}
+
+.signup-wrap .input-set:nth-child(odd) {
+  margin-right: 5%;
 }
 
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
