@@ -14,6 +14,12 @@ class MeetupController {
   static create(req, res) {
     ValidationResultHandler(req, res);
 
+    if (Meetup.doesExist(req.body.topic)) {
+      return res.status(409).send({
+        status: 409,
+        error: 'Meetup record already exists!'
+      });
+    }
     const meetup = Meetup.create(req.body);
 
     return res.status(201).send({

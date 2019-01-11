@@ -41,6 +41,7 @@ class Question {
   /**
    *
    * @param {uuid} id
+   *
    * @returns {object} question object
    */
   static findOne(id) {
@@ -51,7 +52,7 @@ class Question {
   /**
    *
    *
-   * @returns {object} questions object
+   * @returns {array} All questions in an array
    */
   static findAll() {
     return obj.getQuestions();

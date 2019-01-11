@@ -6,6 +6,7 @@ import obj from './db';
 class Meetup {
   /**
    *@param {req.body} data
+   *
    * @returns {object} meetup object
    */
   static create(data) {
@@ -16,7 +17,7 @@ class Meetup {
       images: data.images || [],
       topic: data.topic || '',
       body: data.body || '',
-      happeningOn: data.happeningOn || null,
+      happeningOn: moment(data.happeningOn) || null,
       tags: data.tags || [],
       convener: data.convener || ''
     };
@@ -80,6 +81,16 @@ class Meetup {
   static findOne(id) {
     const meetups = obj.getMeetups();
     return meetups.find(meetup => meetup.id === id);
+  }
+
+  /**
+   *
+   * @param {uuid} id
+   * @returns {object}  rsvp object
+   */
+  static doesExist(text) {
+    const meetups = obj.getMeetups();
+    return meetups.find(meetup => meetup.topic === text);
   }
 
   /**

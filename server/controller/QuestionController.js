@@ -33,6 +33,12 @@ class QuestionController {
     ValidationResultHandler(req, res);
 
     const question = Question.findOne(req.params.id);
+    if (!question) {
+      res.status(400).send({
+        status: 400,
+        error: `Could not find question ${req.params.id}`
+      });
+    }
     return res.status(200).send({
       status: 200,
       data: [question]
