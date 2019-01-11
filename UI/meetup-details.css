@@ -71,6 +71,9 @@ h2.meetup-article-title {
   color: rgb(120, 120, 120);
 }
 
+.meetup-details-container div.content--sm{
+  margin-left: 1.3rem;
+}
 .questions {
   margin-top: 2em;
 }
