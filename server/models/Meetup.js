@@ -6,6 +6,7 @@ import obj from './db';
 class Meetup {
   /**
    *@param {req.body} data
+   *
    * @returns {object} meetup object
    */
   static create(data) {
@@ -16,12 +17,13 @@ class Meetup {
       images: data.images || [],
       topic: data.topic || '',
       body: data.body || '',
-      happeningOn: data.happeningOn || null,
+      happeningOn: moment(data.happeningOn) || null,
       tags: data.tags || [],
       convener: data.convener || ''
     };
     obj.setMeetups(newMeetup);
     return {
+      id: newMeetup.id,
       topic: newMeetup.topic,
       location: newMeetup.location,
       happeningOn: newMeetup.happeningOn,
@@ -80,6 +82,28 @@ class Meetup {
   static findOne(id) {
     const meetups = obj.getMeetups();
     return meetups.find(meetup => meetup.id === id);
+  }
+
+  /**
+   *Check if meetup Exists
+   *
+   * @param {uuid} id
+   * @returns {object}  rsvp object
+   */
+  static exists(text) {
+    const meetups = obj.getMeetups();
+    return meetups.find(meetup => meetup.topic === text);
+  }
+
+  /**
+   * Drop Database
+   *
+   * @param {uuid} id
+   *
+   * @returns {object}  rsvp object
+   */
+  static refresh() {
+    return obj.refresh();
   }
 
   /**

@@ -6,6 +6,16 @@ import meetups from './meetupRoute';
 const routes = Router();
 
 routes.use(express.json());
+routes.use((error, req, res, next) => {
+  if (error instanceof SyntaxError) {
+    res.status(400).send({
+      status: 400,
+      error: 'JSON is Invalid'
+    });
+  } else {
+    next();
+  }
+});
 routes.use(expressValidator());
 
 routes.use('/questions', questions);

@@ -5,7 +5,7 @@ const ValidationResultHandler = (req, res) => {
     ({ location, msg, param }) => `${location}[${param}]: ${msg}`
   );
   if (!result.isEmpty()) {
-    return res.status(400).send({ status: 400, errors: result.array() });
+    return res.status(400).send({ status: 400, error: result.array() });
   }
   return null;
 };

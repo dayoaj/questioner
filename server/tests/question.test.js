@@ -1,6 +1,8 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+
 import server from '../server';
+import Question from '../models/Question';
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -9,6 +11,9 @@ describe('Question', () => {
   let req = {
     body: {}
   };
+  beforeEach(() => {
+    Question.refresh();
+  });
 
   describe('GET /questions/', () => {
     it('it should GET all questions', done => {
@@ -26,13 +31,83 @@ describe('Question', () => {
         });
     });
   });
+  describe('GET /question/:id', () => {
+    it('it should GET a particular meetup', done => {
+      const question = Question.create({
+        createdBy: '833eb7b4-0f84-47b9-b1b7-e731c8aee1db',
+        meetup: 'bd9305a9-2553-458e-85e3-e370857dee61',
+        title: 'Python Web Developers Meetup',
+        body: 'True Pythonistas Meetup!'
+      });
+      chai
+        .request(server)
+        .get(`/api/v1/questions/${question.id}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('data');
+          expect(res.body.status).to.be.a('number');
+          expect(res.body.data).to.be.an('array');
+          done();
+        });
+    });
+  });
+
+  describe('GET /questions/:id/downvote', () => {
+    it('it should downvote a question', done => {
+      const question = Question.create({
+        createdBy: '833eb7b4-0f84-47b9-b1b7-e731c8aee1db',
+        meetup: 'bd9305a9-2553-458e-85e3-e370857dee61',
+        title: 'Python Web Developers Meetup',
+        body: 'True Pythonistas Meetup!'
+      });
+      chai
+        .request(server)
+        .patch(`/api/v1/questions/${question.id}/downvote`)
+        .end((err, res) => {
+          expect(res).to.have.status(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('data');
+          expect(res.body.status).to.be.a('number');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0].votes).to.equal(-1);
+          done();
+        });
+    });
+  });
+
+  describe('GET /questions/:id/upvote', () => {
+    it('it should upvote a question', done => {
+      const question = Question.create({
+        createdBy: '833eb7b4-0f84-47b9-b1b7-e731c8aee1db',
+        meetup: 'bd9305a9-2553-458e-85e3-e370857dee61',
+        title: 'Python Web Developers Meetup',
+        body: 'True Pythonistas Meetup!'
+      });
+      chai
+        .request(server)
+        .patch(`/api/v1/questions/${question.id}/upvote`)
+        .end((err, res) => {
+          expect(res).to.have.status(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('data');
+          expect(res.body.status).to.be.a('number');
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0].votes).to.equal(1);
+          done();
+        });
+    });
+  });
 
   describe('POST /questions', () => {
     it('it should create a question record', done => {
       req = {
         body: {
-          createdBy: 665556,
-          meetup: 8382929,
+          createdBy: '833eb7b4-0f84-47b9-b1b7-e731c8aee1db',
+          meetup: 'bd9305a9-2553-458e-85e3-e370857dee61',
           title: 'Python Web Developers Meetup',
           body: 'True Pythonistas Meetup!'
         }

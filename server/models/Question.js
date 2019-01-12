@@ -23,7 +23,8 @@ class Question {
       user: newQuestion.createdBy,
       meetup: newQuestion.meetup,
       title: newQuestion.title,
-      body: newQuestion.body
+      body: newQuestion.body,
+      votes: newQuestion.vote
     };
   }
 
@@ -41,6 +42,7 @@ class Question {
   /**
    *
    * @param {uuid} id
+   *
    * @returns {object} question object
    */
   static findOne(id) {
@@ -49,9 +51,20 @@ class Question {
   }
 
   /**
+   * Drop Database
+   *
+   * @param {uuid} id
+   *
+   * @returns {object}  rsvp object
+   */
+  static refresh() {
+    return obj.refresh();
+  }
+
+  /**
    *
    *
-   * @returns {object} questions object
+   * @returns {array} All questions in an array
    */
   static findAll() {
     return obj.getQuestions();

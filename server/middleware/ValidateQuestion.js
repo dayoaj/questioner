@@ -15,7 +15,9 @@ class ValidateQuestion {
       case 'createQuestion':
         return [
           body('createdBy', `createdBy doesn't exists`).exists(),
+          body('createdBy', `createdBy is not UUID type`).isUUID(),
           body('meetup', `meetup doesn't exists `).exists(),
+          body('meetup', `meetup is not UUID type `).isUUID(),
           body('title', `title doesn't exists`).exists(),
           body('body', `body doesn't exists`).exists()
         ];
