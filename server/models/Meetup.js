@@ -23,6 +23,7 @@ class Meetup {
     };
     obj.setMeetups(newMeetup);
     return {
+      id: newMeetup.id,
       topic: newMeetup.topic,
       location: newMeetup.location,
       happeningOn: newMeetup.happeningOn,
@@ -84,13 +85,25 @@ class Meetup {
   }
 
   /**
+   *Check if meetup Exists
    *
    * @param {uuid} id
    * @returns {object}  rsvp object
    */
-  static doesExist(text) {
+  static exists(text) {
     const meetups = obj.getMeetups();
     return meetups.find(meetup => meetup.topic === text);
+  }
+
+  /**
+   * Drop Database
+   *
+   * @param {uuid} id
+   *
+   * @returns {object}  rsvp object
+   */
+  static refresh() {
+    return obj.refresh();
   }
 
   /**

@@ -23,7 +23,8 @@ class Question {
       user: newQuestion.createdBy,
       meetup: newQuestion.meetup,
       title: newQuestion.title,
-      body: newQuestion.body
+      body: newQuestion.body,
+      votes: newQuestion.vote
     };
   }
 
@@ -47,6 +48,17 @@ class Question {
   static findOne(id) {
     const questions = obj.getQuestions();
     return questions.find(question => question.id === id);
+  }
+
+  /**
+   * Drop Database
+   *
+   * @param {uuid} id
+   *
+   * @returns {object}  rsvp object
+   */
+  static refresh() {
+    return obj.refresh();
   }
 
   /**

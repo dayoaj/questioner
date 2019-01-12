@@ -10,7 +10,10 @@ app.use(morgan('dev'));
 app.use('/api/v1', routes);
 
 app.get('*', (req, res) => {
-  res.send(pkg.version);
+  res.send({
+    status: 200,
+    data: `API version ${pkg.version}`
+  });
 });
 
 app.listen(process.env.PORT || 8080);

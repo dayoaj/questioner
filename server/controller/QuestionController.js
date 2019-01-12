@@ -105,7 +105,7 @@ class QuestionController {
     }
     return res.status(201).send({
       status: 201,
-      data: question
+      data: [question]
     });
   }
 }
