@@ -11,7 +11,7 @@
     "build-babel": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-babel",
     "cover": "nyc npm run test",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov --reporter=lcov| coveralls"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov  --reporter=lcov | coveralls"
   },
   "repository": {
     "type": "git",
