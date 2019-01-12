@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-.signin-wrap {
+.form-wrap {
   margin: 2rem auto;
   padding: 1rem 2rem;
   width: 35%;
@@ -27,7 +27,7 @@
 .input-set {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   
 }
 .signup-wrap .input-set {
@@ -38,6 +38,9 @@
   margin-right: 5%;
 }
 
+.form-wrap h1 {
+  margin-bottom: 1.8rem;
+}
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
   background: #edeff0;
   border-radius: 4px;
@@ -60,7 +63,7 @@ label {
 }
 
 @media all and (max-width: 650px) {
-  .signup-wrap, .signin-wrap {
+  .signup-wrap, .form-wrap {
     width: 90%;
   }
 }

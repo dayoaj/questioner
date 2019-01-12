@@ -176,4 +176,7 @@
   .profile-details, .profile-top-questions {
     width: 90%;
   }
+  .profile-secondary {
+    flex-direction: column;
+  }
 }

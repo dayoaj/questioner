@@ -24,6 +24,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -36,6 +37,12 @@ body {
   font-size: 1.5rem;
   line-height: 1.5;
   font-family: 'Meera Inimai';
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  flex:1 0 auto;
 }
 
 a {
@@ -316,15 +323,16 @@ section#hero {
   /* background: linear-gradient(135deg, #FF4A2D 0, #FF2300 100%); */
   color: #FF2300;
   padding: 4em 2rem 0 2rem;
+  flex-grow: 1;
 }
 
 .layout-two-col {
   display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 0 2em;
   width: 100%;
   margin: 0 auto;
+  justify-content: space-around;
 }
 
 .hero-text {
@@ -354,6 +362,7 @@ footer {
   padding: 0;
   margin: 0;
   align-items: center;
+  flex-shrink: unset;
 }
 
 footer .content {
@@ -372,7 +381,7 @@ footer a {
 
 @media all and (max-width: 800px) {
   header {
-    max-height: 10%;
+    max-height: 30%;
   }
   nav>ul {
     justify-content: space-around;
