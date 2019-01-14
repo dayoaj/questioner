@@ -12,7 +12,11 @@ class QuestionController {
    * @returns {object} return response object with appended data
    */
   static create(req, res) {
-    ValidationResultHandler(req, res);
+    const result = ValidationResultHandler(req);
+
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
     const question = Question.create(req.body);
 
     return res.status(201).send({
@@ -30,12 +34,16 @@ class QuestionController {
    * @returns {object} return response object with appended data
    */
   static getOne(req, res) {
-    ValidationResultHandler(req, res);
+    const result = ValidationResultHandler(req);
+
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
 
     const question = Question.findOne(req.params.id);
     if (!question) {
-      res.status(400).send({
-        status: 400,
+      res.status(404).send({
+        status: 404,
         error: `Could not find question ${req.params.id}`
       });
     }
@@ -70,19 +78,7 @@ class QuestionController {
    * @returns {object} return response object with appended data
    */
   static upvote(req, res) {
-    ValidationResultHandler(req, res);
-
-    const question = Question.vote(req.params.id, 'upvote');
-    if (!question) {
-      return res.status(404).send({
-        status: 404,
-        error: 'Question not found'
-      });
-    }
-    return res.status(201).send({
-      status: 201,
-      data: [question]
-    });
+    QuestionController.vote(req, res, 'up');
   }
 
   /**
@@ -94,9 +90,27 @@ class QuestionController {
    * @returns {object} return response object with appended data
    */
   static downvote(req, res) {
-    ValidationResultHandler(req, res);
+    QuestionController.vote(req, res, 'down');
+  }
 
-    const question = Question.vote(req.params.id, 'downvote');
+  /**
+   * increase the votes of a question by one
+   *
+   * @param {object} req - represent request object
+   * @param {object} res - represent response object
+   *
+   * @returns {object} return response object with appended data
+   */
+  static vote(req, res, mode) {
+    const result = ValidationResultHandler(req);
+
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
+
+    let question = {};
+    if (mode === 'up') question = Question.vote(req.params.id, 'upvote');
+    if (mode === 'down') question = Question.vote(req.params.id, 'downvote');
     if (!question) {
       return res.status(404).send({
         status: 404,

@@ -16,10 +16,19 @@ class ValidateQuestion {
         return [
           body('createdBy', `createdBy doesn't exists`).exists(),
           body('createdBy', `createdBy is not UUID type`).isUUID(),
-          body('meetup', `meetup doesn't exists `).exists(),
+          body('meetup', `meetup doesn't exists `)
+            .exists()
+            .trim()
+            .escape(),
           body('meetup', `meetup is not UUID type `).isUUID(),
-          body('title', `title doesn't exists`).exists(),
-          body('body', `body doesn't exists`).exists()
+          body('title', `title doesn't exists`)
+            .exists()
+            .trim()
+            .escape(),
+          body('body', `body doesn't exists`)
+            .exists()
+            .trim()
+            .escape()
         ];
       case 'vote':
         return [param('id', `id is not uuid type`).isUUID()];

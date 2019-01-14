@@ -1,13 +1,13 @@
 import { validationResult } from 'express-validator/check';
 
-const ValidationResultHandler = (req, res) => {
+const ValidationResultHandler = req => {
   const result = validationResult(req).formatWith(
     ({ location, msg, param }) => `${location}[${param}]: ${msg}`
   );
-  if (!result.isEmpty()) {
-    return res.status(400).send({ status: 400, error: result.array() });
+  if (result.isEmpty()) {
+    return null;
   }
-  return null;
+  return result.array();
 };
 
 export default ValidationResultHandler;
