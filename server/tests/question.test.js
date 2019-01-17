@@ -3,6 +3,7 @@ import chaiHttp from 'chai-http';
 
 import server from '../server';
 import Question from '../models/Question';
+import { createTables } from './configdb';
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -11,8 +12,9 @@ describe('Question', () => {
   let req = {
     body: {}
   };
-  beforeEach(() => {
-    Question.refresh();
+  beforeEach(done => {
+    createTables();
+    done();
   });
 
   describe('GET /questions/', () => {

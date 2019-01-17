@@ -7,7 +7,7 @@
     "test": "mocha --exit --timeout 15000 --require @babel/register --recursive ./server/tests  ",
     "start": "npm run build && node ./build/server.js",
     "dev-start": "nodemon --exec babel-node ./server/server.js",
-    "database": "babel-node ./server/models/db.js",
+    "database": "babel-node ./db.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-babel",

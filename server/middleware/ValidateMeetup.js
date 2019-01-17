@@ -51,6 +51,8 @@ class ValidateMeetup {
             .exists()
             .trim()
             .escape(),
+          body('user', `user_id is not present`).exists(),
+          body('user', `user_id is not a UUID type`).isUUID(),
           body('status', `status does not exist`).exists(),
           body('status', `status is not well formated`).isIn(['yes', 'no', 'maybe'])
         ];

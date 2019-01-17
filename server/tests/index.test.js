@@ -1,14 +1,20 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
-import Meetup from '../models/Meetup';
+import { createTables, dropTables } from './configdb';
 
 const { expect } = chai;
 chai.use(chaiHttp);
 
 describe('General', () => {
-  beforeEach(() => {
-    Meetup.refresh();
+  beforeEach(done => {
+    createTables();
+    done();
+  });
+
+  afterEach(done => {
+    dropTables();
+    done();
   });
 
   describe('GET /', () => {

@@ -11,23 +11,24 @@ class MeetupController {
    *
    * @returns {object} res
    */
-  static create(req, res) {
+  static async create(req, res) {
     const result = ValidationResultHandler(req);
 
     if (result) {
       return res.status(400).send({ status: 400, error: result });
     }
-    if (Meetup.exists(req.body.topic)) {
-      return res.status(409).send({
-        status: 409,
-        error: 'Meetup record already exists!'
+
+    const meetup = await Meetup.create(req.body);
+
+    if (!meetup.id) {
+      return res.status(500).send({
+        status: 500,
+        error: 'Error retrieving Data from Database'
       });
     }
-    const meetup = Meetup.create(req.body);
-
     return res.status(201).send({
       status: 201,
-      data: [meetup]
+      data: meetup
     });
   }
 
@@ -39,13 +40,14 @@ class MeetupController {
    *
    * @returns {object} res
    */
-  static createRSVP(req, res) {
+  static async createRSVP(req, res) {
     const result = ValidationResultHandler(req);
 
     if (result) {
       return res.status(400).send({ status: 400, error: result });
     }
-    if (!Meetup.findOne(req.params.id)) {
+    const meetup = await Meetup.findOne(req.params.id);
+    if (!meetup.id) {
       return res.status(404).send({
         status: 404,
         error: 'Meetup record does not exist'
@@ -53,10 +55,10 @@ class MeetupController {
     }
     let rsvp = {};
     try {
-      rsvp = Meetup.createRSVP(req.body, req.params.id);
+      rsvp = await Meetup.createRSVP(req.body, req.params.id);
       return res.status(201).send({
         status: 201,
-        data: [rsvp]
+        data: rsvp
       });
     } catch (e) {
       return res.status(400).send({
@@ -74,14 +76,14 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getOne(req, res) {
+  static async getOne(req, res) {
     const result = ValidationResultHandler(req);
 
     if (result) {
       return res.status(400).send({ status: 400, error: result });
     }
-    const meetup = Meetup.findOne(req.params.id);
-    if (!meetup) {
+    const meetup = await Meetup.findOne(req.params.id);
+    if (!meetup.id) {
       return res.status(404).send({
         status: 404,
         error: 'Meetup not found'
@@ -89,7 +91,7 @@ class MeetupController {
     }
     return res.status(200).send({
       status: 200,
-      data: [meetup]
+      data: meetup
     });
   }
 
@@ -101,8 +103,8 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getAll(req, res) {
-    const meetups = Meetup.findAll();
+  static async getAll(req, res) {
+    const meetups = await Meetup.findAll();
     return res.status(200).send({
       status: 200,
       data: meetups
@@ -117,8 +119,8 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getAllRSVP(req, res) {
-    const meetups = Meetup.findAllRSVP();
+  static async getAllRSVP(req, res) {
+    const meetups = await Meetup.findAllRSVP();
     return res.status(200).send({
       status: 200,
       data: meetups
@@ -133,9 +135,9 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getUpcoming(req, res) {
-    const meetups = Meetup.findUpcoming();
-    if (!meetups) {
+  static async getUpcoming(req, res) {
+    const meetups = await Meetup.findUpcoming();
+    if (!meetups[0].id) {
       return res.status(404).send({
         status: 404,
         error: 'No Upcoming meetup'

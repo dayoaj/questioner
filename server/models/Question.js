@@ -1,64 +1,85 @@
 import moment from 'moment';
 import uuid from 'uuid';
-import obj from './db';
+import db from './index';
 
 class Question {
   /**
    *
    * @returns {object} question object
    */
-  static create(data) {
-    const newQuestion = {
-      id: uuid.v4(),
-      createdOn: moment(),
-      createdBy: data.createdBy || null,
-      meetup: data.meetup || null,
-      title: data.title || '',
-      body: data.body || '',
-      votes: data.votes || 0
-    };
-    obj.setQuestions(newQuestion);
-    return {
-      id: newQuestion.id,
-      user: newQuestion.createdBy,
-      meetup: newQuestion.meetup,
-      title: newQuestion.title,
-      body: newQuestion.body,
-      votes: newQuestion.vote
-    };
-  }
-
-  static vote(id, mode) {
-    const questions = obj.getQuestions();
-    const question = questions.find(n => n.id === id);
-    const index = questions.indexOf(question);
-    const { votes } = question;
-    if (mode === 'upvote') questions[index].votes = votes + 1;
-    if (mode === 'downvote') questions[index].votes = votes - 1;
-    obj.setQuestions(questions);
-    return questions[index];
+  static async create(data) {
+    const id = uuid.v4();
+    const newQuestion = [`${id}`, moment(), data.createdBy, data.meetup, data.title, data.body, 0];
+    try {
+      const { rows } = await db.query(
+        `INSERT INTO public.questions(
+	id, createdon, createdby, meetup, title, body, votes)
+	VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`,
+        newQuestion
+      );
+      return {
+        id: rows[0].id,
+        user: rows[0].createdBy,
+        meetup: rows[0].meetup,
+        title: rows[0].title,
+        body: rows[0].body,
+        votes: rows[0].votes
+      };
+    } catch (err) {
+      return err;
+    }
   }
 
   /**
-   *
+   * method handles upvote and downvote
    * @param {uuid} id
    *
    * @returns {object} question object
    */
-  static findOne(id) {
-    const questions = obj.getQuestions();
-    return questions.find(question => question.id === id);
+  static async vote(id, mode) {
+    try {
+      if (mode === 'upvote') {
+        const { rows } = await db.query(
+          `UPDATE questions
+	SET votes = votes + 1
+	WHERE id = $1 returning *`,
+          [id]
+        );
+        return rows[0];
+      }
+
+      if (mode === 'downvote') {
+        const { rows } = await db.query(
+          `UPDATE questions
+	SET votes = votes - 1
+	WHERE id = $1 returning *`,
+          [id]
+        );
+        return rows[0];
+      }
+      return null;
+    } catch (err) {
+      return err;
+    }
   }
 
   /**
-   * Drop Database
-   *
+   * returns one question
    * @param {uuid} id
    *
-   * @returns {object}  rsvp object
+   * @returns {object} question object
    */
-  static refresh() {
-    return obj.refresh();
+  static async findOne(id) {
+    try {
+      const { rows } = await db.query(
+        `SELECT id, createdon, createdby, meetup, title, body, votes
+	FROM questions WHERE id = $1`,
+        id
+      );
+      return rows[0];
+    } catch (err) {
+      return err;
+    }
   }
 
   /**
@@ -66,8 +87,16 @@ class Question {
    *
    * @returns {array} All questions in an array
    */
-  static findAll() {
-    return obj.getQuestions();
+  static async findAll() {
+    try {
+      const { rows } = await db.query(
+        `SELECT id, createdon, createdby, meetup, title, body, votes
+	FROM questions`
+      );
+      return rows;
+    } catch (err) {
+      return err;
+    }
   }
 }
 

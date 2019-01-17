@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 import Meetup from '../models/Meetup';
+import { createTables, dropTables } from './configdb';
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -11,8 +12,9 @@ describe('Meetup', () => {
     body: {}
   };
 
-  beforeEach(() => {
-    Meetup.refresh();
+  beforeEach(done => {
+    createTables();
+    done();
   });
 
   describe('GET /meetups', () => {
@@ -58,7 +60,7 @@ describe('Meetup', () => {
   });
 
   describe('GET /meetup/:id', () => {
-    it('it should GET a particular meetup', done => {
+    it('it should return an error for meetup not found', done => {
       Meetup.create({
         location: 'CCHub, Yaba, Lagos.',
         topic: 'Python Web Developers Meetup',
