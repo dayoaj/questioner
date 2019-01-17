@@ -6,7 +6,5 @@ services:
 cache:
   directories:
     - 'node_modules'
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
 after_success:
   - npm run coverage

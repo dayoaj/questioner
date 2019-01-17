@@ -2,6 +2,7 @@ import express, { Router } from 'express';
 import expressValidator from 'express-validator';
 import questions from './questionRoute';
 import meetups from './meetupRoute';
+import users from './userRoute';
 
 const routes = Router();
 
@@ -21,6 +22,7 @@ routes.use(expressValidator());
 
 routes.use('/questions', questions);
 routes.use('/meetups', meetups);
+routes.post('/auth', users);
 
 routes.use('*', (req, res) => {
   res
