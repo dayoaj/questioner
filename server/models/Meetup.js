@@ -32,7 +32,7 @@ class Meetup {
   }
 
   /**
-   *
+   * Should gget one rsvp object
    * @param {uuid} id
    * @returns {object}  rsvp object
    */

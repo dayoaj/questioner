@@ -12,8 +12,11 @@ class MeetupController {
    * @returns {object} res
    */
   static create(req, res) {
-    ValidationResultHandler(req, res);
+    const result = ValidationResultHandler(req);
 
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
     if (Meetup.exists(req.body.topic)) {
       return res.status(409).send({
         status: 409,
@@ -37,8 +40,11 @@ class MeetupController {
    * @returns {object} res
    */
   static createRSVP(req, res) {
-    ValidationResultHandler(req, res);
+    const result = ValidationResultHandler(req);
 
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
     if (!Meetup.findOne(req.params.id)) {
       return res.status(404).send({
         status: 404,
@@ -48,17 +54,16 @@ class MeetupController {
     let rsvp = {};
     try {
       rsvp = Meetup.createRSVP(req.body, req.params.id);
+      return res.status(201).send({
+        status: 201,
+        data: [rsvp]
+      });
     } catch (e) {
       return res.status(400).send({
         status: 400,
         error: e.message
       });
     }
-
-    return res.status(201).send({
-      status: 201,
-      data: [rsvp]
-    });
   }
 
   /**
@@ -70,7 +75,11 @@ class MeetupController {
    * @returns {object} return response object with appended data
    */
   static getOne(req, res) {
-    ValidationResultHandler(req, res);
+    const result = ValidationResultHandler(req);
+
+    if (result) {
+      return res.status(400).send({ status: 400, error: result });
+    }
     const meetup = Meetup.findOne(req.params.id);
     if (!meetup) {
       return res.status(404).send({

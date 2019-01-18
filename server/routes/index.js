@@ -6,6 +6,7 @@ import meetups from './meetupRoute';
 const routes = Router();
 
 routes.use(express.json());
+routes.use(express.urlencoded({ extended: 'true' }));
 routes.use((error, req, res, next) => {
   if (error instanceof SyntaxError) {
     res.status(400).send({
