@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 import Meetup from '../models/Meetup';
-import { createTables, dropTables } from './configdb';
+import { createTables } from './configdb';
 
 const { expect } = chai;
 chai.use(chaiHttp);
