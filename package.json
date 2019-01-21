@@ -4,6 +4,7 @@
   "description": "Web api for questioner",
   "main": "server.js",
   "scripts": {
+    "pretest": "babel-node ./database/create.js && babel-node ./database/migrate.js",
     "test": "mocha --exit --timeout 15000 --require @babel/register --recursive ./server/tests  ",
     "start": "npm run build && node ./build/server.js",
     "dev-start": "nodemon --exec babel-node ./server/server.js",
