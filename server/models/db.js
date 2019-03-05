@@ -1,38 +1,24 @@
-const questions = [];
-const meetups = [];
-const rsvps = [];
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
 
-class obj {
-  static setQuestions(data) {
-    return questions.push(data);
+dotenv.config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  max: 2,
+  idleTimeoutMillis: 10000,
+  connectionTimeoutMillis: 2000
+});
+
+export default {
+  query(text, params) {
+    (async () => {
+      const client = await pool.connect();
+      try {
+        await client.query(text, params);
+      } finally {
+        client.release();
+      }
+    })().catch(e => console.log(e.stack));
   }
-
-  static setMeetups(data) {
-    return meetups.push(data);
-  }
-
-  static setRsvps(data) {
-    return rsvps.push(data);
-  }
-
-  static getQuestions() {
-    return questions;
-  }
-
-  static getMeetups() {
-    return meetups;
-  }
-
-  static getRsvps() {
-    return rsvps;
-  }
-
-  static refresh() {
-    questions.splice(0, questions.length);
-    meetups.splice(0, meetups.length);
-    rsvps.splice(0, rsvps.length);
-    return null;
-  }
-}
-
-export default obj;
+};

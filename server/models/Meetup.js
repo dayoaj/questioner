@@ -1,7 +1,7 @@
 import moment from 'moment';
 import uuid from 'uuid';
 import ErrorHandle from './ErrorHandle';
-import obj from './db';
+import db from '../db';
 
 class Meetup {
   /**
@@ -111,9 +111,17 @@ class Meetup {
    *
    * @returns {object} meetups object
    */
-  static findAll() {
-    const meetups = obj.getMeetups();
+  async static findAll() {
+    const findAllQuery = 'SELECT * FROM meetups';
+    const { rows, rowCount } = await db.query(findAllQuery);
+
     return meetups;
+
+    try {
+      return res.status(200).send({ rows, rowCount });
+    } catch(error) {
+      return res.status(400).send(error);
+}
   }
 
   static findUpcoming() {
