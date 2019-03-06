@@ -1,7 +1,7 @@
 import moment from 'moment';
 import uuid from 'uuid';
+import db from './db';
 import ErrorHandle from './ErrorHandle';
-import db from '../db';
 
 class Meetup {
   /**
@@ -9,9 +9,10 @@ class Meetup {
    *
    * @returns {object} meetup object
    */
-  static create(data) {
+  static async create(data) {
     const newMeetup = {
       id: uuid.v4(),
+      creator: data.creator || '',
       createdOn: moment(),
       location: data.location || '',
       images: data.images || [],
@@ -21,24 +22,47 @@ class Meetup {
       tags: data.tags || [],
       convener: data.convener || ''
     };
-    obj.setMeetups(newMeetup);
-    return {
-      id: newMeetup.id,
-      topic: newMeetup.topic,
-      location: newMeetup.location,
-      happeningOn: newMeetup.happeningOn,
-      tags: newMeetup.tags
-    };
+
+    const text = `INSERT INTO
+      meetups(id, user_id, createdon, location, images, topic, body, happeningon, tags, convener )
+      VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+      returning *`;
+    const values = [
+      newMeetup.id,
+      newMeetup.creator,
+      newMeetup.createdOn,
+      newMeetup.location,
+      newMeetup.images,
+      newMeetup.topic,
+      newMeetup.body,
+      newMeetup.happeningOn,
+      newMeetup.tags,
+      newMeetup.convener
+    ];
+
+    try {
+      const { rows } = await db.query(text, values);
+      return {
+        id: rows[0].id,
+        topic: rows[0].topic,
+        location: rows[0].location,
+        happeningOn: rows[0].happeningOn,
+        tags: rows[0].tags
+      };
+    } catch (error) {
+      return error;
+    }
   }
 
   /**
-   * Should gget one rsvp object
+   * Should get one rsvp object
    * @param {uuid} id
    * @returns {object}  rsvp object
    */
-  static findOneRSVP(id) {
-    const rsvps = obj.getRsvps();
-    return rsvps.find(rsvp => rsvp.meetup === id);
+  static async findOneRSVP(id) {
+    const findOneRSVPQuery = `SELECT * FROM meetups  WHERE id = '${id}'`;
+    const { row } = await db.query(findOneRSVPQuery);
+    return row;
   }
 
   /**
@@ -46,9 +70,10 @@ class Meetup {
    * @param {uuid} id
    * @returns {object} meetup object
    */
-  static findAllRSVP() {
-    const rsvps = obj.getRsvps();
-    return rsvps;
+  static async findAllRSVP() {
+    const findAllRSVPQuery = 'SELECT * FROM rsvps';
+    const { rows } = await db.query(findAllRSVPQuery);
+    return rows;
   }
 
   /**
@@ -79,31 +104,10 @@ class Meetup {
    * @param {uuid} id
    * @returns {object} meetup object
    */
-  static findOne(id) {
-    const meetups = obj.getMeetups();
-    return meetups.find(meetup => meetup.id === id);
-  }
-
-  /**
-   *Check if meetup Exists
-   *
-   * @param {uuid} id
-   * @returns {object}  rsvp object
-   */
-  static exists(text) {
-    const meetups = obj.getMeetups();
-    return meetups.find(meetup => meetup.topic === text);
-  }
-
-  /**
-   * Drop Database
-   *
-   * @param {uuid} id
-   *
-   * @returns {object}  rsvp object
-   */
-  static refresh() {
-    return obj.refresh();
+  static async findOne(id) {
+    const findOneQuery = `SELECT * FROM meetups  WHERE id = '${id}'`;
+    const { row } = await db.query(findOneQuery);
+    return row;
   }
 
   /**
@@ -111,22 +115,20 @@ class Meetup {
    *
    * @returns {object} meetups object
    */
-  async static findAll() {
+  static async findAll() {
     const findAllQuery = 'SELECT * FROM meetups';
-    const { rows, rowCount } = await db.query(findAllQuery);
-
-    return meetups;
-
-    try {
-      return res.status(200).send({ rows, rowCount });
-    } catch(error) {
-      return res.status(400).send(error);
-}
+    const { rows } = await db.query(findAllQuery);
+    return rows;
   }
 
-  static findUpcoming() {
-    const meetups = obj.getMeetups();
-    return meetups.filter(n => n.happeningOn > moment());
+  static async findUpcoming() {
+    try {
+      const findUpcomingQuery = 'SELECT * FROM meetups  WHERE happeningOn > now()';
+      const { rows } = await db.query(findUpcomingQuery);
+      return rows;
+    } catch (error) {
+      return error;
+    }
   }
 }
 
