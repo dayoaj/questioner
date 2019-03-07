@@ -62,7 +62,7 @@ class Meetup {
   static async findOneRSVP(id) {
     const findOneRSVPQuery = `SELECT * FROM meetups  WHERE id = '${id}'`;
     const { row } = await db.query(findOneRSVPQuery);
-    return row;
+    return row[0];
   }
 
   /**
@@ -87,10 +87,15 @@ class Meetup {
       topic: data.topic || '',
       response: data.status || ''
     };
+
+    // Check if event has occured
     if (this.findOneRSVP(id) && this.findOneRSVP(id).response === newRSVP.response)
       throw new ErrorHandle('Event RSVP is already stored');
+
+    // Check if  event has already taken place
     if (this.findOne(id) && this.findOne(id).happeningOn < moment())
       throw new ErrorHandle('Cannot Reserve, Event is past');
+
     obj.setRsvps(newRSVP);
     return {
       meetup: newRSVP.meetup,
@@ -106,8 +111,8 @@ class Meetup {
    */
   static async findOne(id) {
     const findOneQuery = `SELECT * FROM meetups  WHERE id = '${id}'`;
-    const { row } = await db.query(findOneQuery);
-    return row;
+    const { rows } = await db.query(findOneQuery);
+    return rows[0];
   }
 
   /**
