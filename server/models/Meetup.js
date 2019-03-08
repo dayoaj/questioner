@@ -80,10 +80,11 @@ class Meetup {
    *@param {req.body} data
    * @returns {object} meetup object
    */
-  static createRSVP(data, id) {
+  static async createRSVP(data, id) {
     const newRSVP = {
       id: uuid.v4(),
       meetup: id || null,
+      user_id: id || null,
       topic: data.topic || '',
       response: data.status || ''
     };
@@ -96,12 +97,23 @@ class Meetup {
     if (this.findOne(id) && this.findOne(id).happeningOn < moment())
       throw new ErrorHandle('Cannot Reserve, Event is past');
 
-    obj.setRsvps(newRSVP);
-    return {
-      meetup: newRSVP.meetup,
-      topic: newRSVP.topic,
-      status: newRSVP.response
-    };
+    const text = `INSERT INTO
+    rsvps(id, meetup, user_id, response, topic )
+    VALUES($1, $2, $3, $4, $5 $9, $10)
+    returning *`;
+    const values = [newRSVP.id, newRSVP.meetup, newRSVP.user_id, newRSVP.response, newRSVP.topic];
+
+    try {
+      const { rows } = await db.query(text, values);
+      return {
+        meetup: rows[0].meetup,
+        topic: rows[0].topic,
+        status: rows[0].response
+      };
+    } catch (e) {
+      console.log(e.stack);
+      return undefined;
+    }
   }
 
   /**
@@ -131,8 +143,9 @@ class Meetup {
       const findUpcomingQuery = 'SELECT * FROM meetups  WHERE happeningOn > now()';
       const { rows } = await db.query(findUpcomingQuery);
       return rows;
-    } catch (error) {
-      return error;
+    } catch (e) {
+      console.log(e.stack);
+      return undefined;
     }
   }
 }
