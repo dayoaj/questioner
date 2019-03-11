@@ -128,13 +128,25 @@ class Meetup {
   }
 
   /**
+   *Check if meetup Exists
+   *
+   * @param {uuid} id
+   * @returns {object}  rsvp object
+   */
+  static exists(text) {
+    const meetups = obj.getMeetups();
+    return meetups.find(meetup => meetup.topic === text);
+  }
+
+  /**
    *
    *
    * @returns {object} meetups object
    */
   static async findAll() {
     const findAllQuery = 'SELECT * FROM meetups';
-    const { rows } = await db.query(findAllQuery);
+    const rows = await db.query(findAllQuery);
+    if (!rows) throw new ErrorHandle('row returned is undefined!');
     return rows;
   }
 
