@@ -4,6 +4,7 @@ import routes from './routes';
 import pkg from '../package.json';
 
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(morgan('dev'));
 
@@ -16,6 +17,6 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(port, () => console.log(`App listening on port ${port}!`));
 
 export default app;
