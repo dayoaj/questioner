@@ -11,7 +11,7 @@ class MeetupController {
    *
    * @returns {object} res
    */
-  static create(req, res) {
+  static async create(req, res) {
     const result = ValidationResultHandler(req);
 
     if (result) {
@@ -23,7 +23,7 @@ class MeetupController {
         error: 'Meetup record already exists!'
       });
     }
-    const meetup = Meetup.create(req.body);
+    const meetup = await Meetup.create(req.body);
 
     return res.status(201).send({
       status: 201,
@@ -101,12 +101,20 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getAll(req, res) {
-    const meetups = Meetup.findAll();
-    return res.status(200).send({
-      status: 200,
-      data: meetups
-    });
+  static async getAll(req, res) {
+    try {
+      const meetups = await Meetup.findAll();
+      return res.status(200).send({
+        status: 200,
+        data: meetups
+      });
+    } catch (e) {
+      console.log(e.stack);
+      return res.status(500).send({
+        status: 400,
+        error: 'Error reading data'
+      });
+    }
   }
 
   /**
@@ -133,8 +141,8 @@ class MeetupController {
    *
    * @returns {object} return response object with appended data
    */
-  static getUpcoming(req, res) {
-    const meetups = Meetup.findUpcoming();
+  static async getUpcoming(req, res) {
+    const meetups = await Meetup.findUpcoming();
     if (!meetups) {
       return res.status(404).send({
         status: 404,
